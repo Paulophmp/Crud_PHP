@@ -1,0 +1,23 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer{
+    background-color: #2e3436;
+    color: #FFF;
+    /*dar espaço entre o botao enviar para baixo*/
+    margin-top: 10%;
+    padding:2%;
+}
+
+footer address:last-child{
+    margin-bottom: 0;
+}
+
+footer p {
+    color: #FFFFFF;
+}
+.autor{
+    color: #8d0022;
+}
