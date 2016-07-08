@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use DB;
 use App\meuModel;
 use Illuminate\Http\Request;
@@ -14,26 +15,32 @@ class MeuController extends Controller
         $this->middleware('auth');
     }
     
-    public function index(){
+    public function index()
+    {
         return view('welcome');
     }
 
-    public function usuarios(meuModel $mod){
+    public function usuarios(meuModel $mod)
+    {
 		$user = $mod->all();
 //		$user = $mod->where('user_id', auth()->user()->id)->get();
         //$user = meuModel::all();
         //$user = meuModel::paginate(15);
         return view('usuarios',['users'=>$user]);
     }
-    public function user($id){
+
+    public function user($id)
+    {
         $user = meuModel::find($id);
         return view('user',['user'=>$user]);
     }
+
     public function sobre(){
         return view('sobre');
     }
 
-    public function contato(){
+    public function contato()
+    {
         return view('contato');
     }
     
@@ -42,8 +49,8 @@ class MeuController extends Controller
     }
 
 //    aqui estou usando o FormRequest mais posso tambem usar o metodo "rules" na minha model
-    public function store(UserRequest $request){
-
+    public function store(UserRequest $request)
+    {
         $input = $request->all();
         //var_dump($input);
         //exit;
@@ -52,7 +59,8 @@ class MeuController extends Controller
         return redirect('usuarios')->with('status','Criado com Sucesso');
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         $delete = meuModel::find($id);
         $delete->delete();
         return redirect('usuarios')->with('status1','Deletado com Sucesso');
@@ -68,15 +76,16 @@ class MeuController extends Controller
 
 //    aqui estou usando 2 metodos de validação aki usando o medoto validate "rules", que esta na minha model
 //    la em cima no metodo store estou usando o FormRequest
-    public function update(Request $request, $id){
+    public function update(Request $request, $id)
+    {
         $this->validate($request, meuModel::$rules);
         $update = meuModel::find($id)->update($request->all());
 
         return redirect('usuarios')->with('status','Atualizado com Sucesso');
     }
 
-    public function search(){
-
+    public function search()
+    {
         $nome = DB::table('meu_models')
             ->select('nome', 'email')
             ->where('nome',"LIKE","E%")
@@ -84,5 +93,4 @@ class MeuController extends Controller
 
         return view('search', compact('nome'));
     }
-
 }
