@@ -9,23 +9,23 @@
                 {!! csrf_field() !!}
 
                 <div class="form-group">
-                    <label class="control-label col-sm-2">Nome:</label>
-                    <div class="col-sm-10">
+                    <label class="control-label col-sm-3">Nome:</label>
+                    <div class="col-sm-8">
                         <input type="text" name="nome" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group has-feedback">
-                    <label class="control-label col-sm-2">Email:</label>
-                    <div class="col-sm-10">
+                    <label class="control-label col-sm-3">Email:</label>
+                    <div class="col-sm-8">
                         <input type="email" name="email" class="form-control">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label col-sm-2">Descricao:</label>
-                        <div class="col-sm-10">
+                    <label class="control-label col-sm-3">Descricao:</label>
+                        <div class="col-sm-8">
                     <textarea type="text" name="descricao" rows="5" class="form-control"></textarea>
                     </div>
                 </div>

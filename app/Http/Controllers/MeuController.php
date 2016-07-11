@@ -84,11 +84,14 @@ class MeuController extends Controller
         return redirect('usuarios')->with('status','Atualizado com Sucesso');
     }
 
-    public function search()
+    public function search(Request $request)
     {
+        $post = $request->all();
+        $nomePost = isset($post['nome']) ? $post['nome'] : "";
+//        echo "<pre>",var_dump($request->all()),"</pre>";
         $nome = DB::table('meu_models')
-            ->select('nome', 'email')
-            ->where('nome',"LIKE","E%")
+            ->select('id','nome', 'email', 'cidade')
+            ->where('nome',"LIKE", "%$nomePost%")
             ->get();
 
         return view('search', compact('nome'));

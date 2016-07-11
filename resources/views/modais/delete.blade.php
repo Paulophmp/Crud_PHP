@@ -11,7 +11,7 @@
                 Deseja realmente excluir este {{$usuario->nome}}?
             </div>
             <div class="modal-footer">
-                <a type="button" class="btn btn-primary" href="{{url("usuarios/excluir/$usuario->id")}}">Sim</a>
+                <a type="button" class="btn btn-primary" href="{{url("usuarios/excluir",['id'=>$usuario->id])}}">Sim</a>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
             </div>
         </div>

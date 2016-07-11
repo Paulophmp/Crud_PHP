@@ -19,7 +19,7 @@
         @endif
 
             <a href="{{url("create")}}" class="btn btn-primary">Novo Usuario</a>
-
+                {{--Incio Form Busca usuário--}}
                 <form class="navbar-form navbar-right" method="get" action="{{url('search')}}">
                     <div class="input-group">
                         <input name="nome" class="form-control" id="search" type="text" placeholder="Pesquisar Itens">
@@ -30,6 +30,7 @@
                             </span>
                     </div>
                 </form>
+                {{--Fim Form Busca usuário--}}
 
         @if($users->isEmpty())
             <div class="alert alert-info text-center">Nenhum usuário cadastrado</div>
@@ -58,7 +59,7 @@
                             @can('autorizacao', $usuario)
                                 <a href="{{url('contato/user',['id'=>$usuario->id])}}" class="btn btn-success editable-table-button btn-xs">Visualizar</a>
                                 <a href="{{url("usuarios/editar",['id'=>$usuario->id])}}" data-toggle="modal" data-target="#ModalEditar" class="btn btn-warning editable-table-button btn-xs">Editar</a>
-                                {{--<a href="{{url("usuarios/excluir/$usuario->id")}}" onclick="return confirm('Deseja Excluir {{$usuario->nome}}')" class="btn btn-danger editable-table-button btn-xs">Excluir</a>--}}
+{{--                                <a href="{{url("usuarios/excluir/$usuario->id")}}" onclick="return confirm('Deseja Excluir {{$usuario->nome}}')" class="btn btn-danger editable-table-button btn-xs">Excluir</a>--}}
                                 <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal" data-target="#delete-modal">Excluir</a>
 
                                 @include("modais.delete")
