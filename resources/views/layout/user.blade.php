@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,15 +22,18 @@
 <body>
 
 <div class="container ">
-    <div class="header clearfix">
-        <h4 class="text-primary">Dados Completos</h4>
-    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Laravel CRUD Operations Demo</a>
+            </div>
+            <ul class="nav navbar-nav">
+            </ul>
+        </div>
+    </nav>
 
     @yield('container')
 
 </div> <!-- /container -->
-@section('style')
-    <scrip src="/js/modal.js"></scrip>
-@show
 </body>
 </html>

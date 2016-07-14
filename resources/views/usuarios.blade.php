@@ -7,9 +7,11 @@
 
         @if(session('status'))
 
-            <div class="alert alert-success text-center">
-				<a href="#" class="close" data-dismiss="alert">&times;</a>
-                <strong>{{session('status')}}</strong>...
+            <div class="row">
+                <div class="alert alert-success text-center col-md-6 col-md-offset-3">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <strong>{{session('status')}}</strong>...
+                </div>
             </div>
 
         @elseif(session('status1'))
@@ -58,7 +60,7 @@
                         <td>
                             @can('autorizacao', $usuario)
                                 <a href="{{url('contato/user',['id'=>$usuario->id])}}" class="btn btn-success editable-table-button btn-xs">Visualizar</a>
-                                <a href="{{url("usuarios/editar",['id'=>$usuario->id])}}" data-toggle="modal" data-target="#ModalEditar" class="btn btn-warning editable-table-button btn-xs">Editar</a>
+                                <a href="{{url("usuarios/editar",['id'=>$usuario->id])}}" class="btn btn-warning editable-table-button btn-xs">Editar</a>
 {{--                                <a href="{{url("usuarios/excluir/$usuario->id")}}" onclick="return confirm('Deseja Excluir {{$usuario->nome}}')" class="btn btn-danger editable-table-button btn-xs">Excluir</a>--}}
                                 <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal" data-target="#delete-modal">Excluir</a>
 
@@ -68,41 +70,6 @@
                         </td>
                     </tr>
                 @endforeach
-
-                {{--Modal Editar--}}
-                <div class="modal fade" id="ModalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="exampleModalLabel">New message</h4>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="form-group">
-                                        <label for="nome" class="control-label">Nome:</label>
-                                        <input type="text" class="form-control" id="nome" value="{{$usuario->nome}}">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="fone" class="control-label">Telefone:</label>
-                                        <input type="text" class="form-control" id="fone" value="{{$usuario->telefone}}">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="control-label" for="email">Email:</label>
-                                        <input type="email" class="form-control" id="email" value="{{$usuario->email}}">
-                                    </div>
-
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-primary">Send message</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 </tbody>
 

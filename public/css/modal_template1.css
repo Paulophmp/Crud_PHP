@@ -1,3 +1,7 @@
+/*.modal body{*/
+    /*background-color: #e80018;*/
+/*}*/
+
 .modal-header{
     background-color: #e80018;
     color:white ;
@@ -7,4 +11,16 @@
 .modal-footer {
     background-color: #f9f9f9;
 }
+
+.modal-content img{
+    display: block;
+    width: 15%;
+    /*margin: px ;*/
+    margin-left: 15px;
+}
+
+/*.modal-content p{*/
+    /*padding-top: 10px;*/
+    /*text-align: justify;*/
+/*}*/
 

@@ -63,6 +63,7 @@ class MeuController extends Controller
     {
         $delete = meuModel::find($id);
         $delete->delete();
+        //meuModel::find($id)->delete();
         return redirect('usuarios')->with('status1','Deletado com Sucesso');
 
 //        meuModel::find($id)->delete();
@@ -92,6 +93,7 @@ class MeuController extends Controller
         $nome = DB::table('meu_models')
             ->select('id','nome', 'email', 'cidade')
             ->where('nome',"LIKE", "%$nomePost%")
+            ->orWhere('id' , "LIKE",   "$nomePost")
             ->get();
 
         return view('search', compact('nome'));

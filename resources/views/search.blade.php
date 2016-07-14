@@ -28,7 +28,6 @@
                         <td>{{$use->cidade}}</td>
                     </tr>
                 @endforeach
-
             </tbody>
         </table>
 
