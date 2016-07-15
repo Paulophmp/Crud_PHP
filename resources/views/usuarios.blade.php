@@ -8,8 +8,9 @@
         @if(session('status'))
 
             <div class="row">
-                <div class="alert alert-success text-center col-md-6 col-md-offset-3">
+                <div class="alert alert-success alert-dismissable fa in text-center col-md-6 col-md-offset-3">
                     <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <h4><i class="icon fa fa-check">Alerta!</i></h4>
                     <strong>{{session('status')}}</strong>...
                 </div>
             </div>

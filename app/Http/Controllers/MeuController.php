@@ -20,11 +20,11 @@ class MeuController extends Controller
         return view('welcome');
     }
 
-    public function usuarios(meuModel $mod)
+    public function usuarios(meuModel $model)
     {
-		$user = $mod->all();
+//		$user = $mod->all()->orderBy('nome', 'ASC')->get();
 //		$user = $mod->where('user_id', auth()->user()->id)->get();
-        //$user = meuModel::all();
+        $user = $model->all();
         //$user = meuModel::paginate(15);
         return view('usuarios',['users'=>$user]);
     }
@@ -52,8 +52,6 @@ class MeuController extends Controller
     public function store(UserRequest $request)
     {
         $input = $request->all();
-        //var_dump($input);
-        //exit;
         meuModel::create($input);
 
         return redirect('usuarios')->with('status','Criado com Sucesso');
@@ -94,6 +92,7 @@ class MeuController extends Controller
             ->select('id','nome', 'email', 'cidade')
             ->where('nome',"LIKE", "%$nomePost%")
             ->orWhere('id' , "LIKE",   "$nomePost")
+            ->orderBy('nome', 'ASC')
             ->get();
 
         return view('search', compact('nome'));
