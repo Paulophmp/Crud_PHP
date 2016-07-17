@@ -1,4 +1,5 @@
 
+
     @extends('layout.template1')
     @section('title', 'Usuários')
     @section('container')

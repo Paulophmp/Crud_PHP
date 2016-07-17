@@ -58,55 +58,55 @@
 
 
             {!! Form::close() !!}
-        {{--<hr>--}}
-        {{--<form method="put" action="{{url("usuarios/atualizar/$editar->id")}}" class="form-horizontal">--}}
-            {{--{!! csrf_field() !!}--}}
+            {{--<hr>--}}
+            {{--<form method="put" action="{{url("usuarios/atualizar/$editar->id")}}" class="form-horizontal">--}}
+                {{--{!! csrf_field() !!}--}}
 
-            {{--<div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">--}}
-                {{--<label class="control-label col-sm-2">Nome:</label>--}}
-                {{--<div class="col-sm-10">--}}
-                    {{--<input type="text" name="nome" value="{{$editar->nome}}" class="form-control" value="{{ old('nome') }}">--}}
-                    {{--@if ($errors->has('nome'))--}}
-                        {{--<span class="help-block">--}}
-                                   {{--<strong>{{ $errors->first('nome') }}</strong>--}}
-                               {{--</span>--}}
-                    {{--@endif--}}
+                {{--<div class="form-group{{ $errors->has('nome') ? ' has-error' : '' }}">--}}
+                    {{--<label class="control-label col-sm-2">Nome:</label>--}}
+                    {{--<div class="col-sm-10">--}}
+                        {{--<input type="text" name="nome" value="{{$editar->nome}}" class="form-control" value="{{ old('nome') }}">--}}
+                        {{--@if ($errors->has('nome'))--}}
+                            {{--<span class="help-block">--}}
+                                       {{--<strong>{{ $errors->first('nome') }}</strong>--}}
+                                   {{--</span>--}}
+                        {{--@endif--}}
+                    {{--</div>--}}
                 {{--</div>--}}
-            {{--</div>--}}
 
-            {{--<div class="form-group">--}}
-                {{--<label class="control-label col-sm-2">Telefone:</label>--}}
-                {{--<div class="col-sm-10">--}}
-                    {{--<input type="tel" name="telefone" value="{{$editar->telefone}}" class="form-control">--}}
+                {{--<div class="form-group">--}}
+                    {{--<label class="control-label col-sm-2">Telefone:</label>--}}
+                    {{--<div class="col-sm-10">--}}
+                        {{--<input type="tel" name="telefone" value="{{$editar->telefone}}" class="form-control">--}}
+                    {{--</div>--}}
                 {{--</div>--}}
-            {{--</div>--}}
 
-            {{--<div class="form-group">--}}
-                {{--<label class="control-label col-sm-2">Email:</label>--}}
-                {{--<div class="col-sm-10">--}}
-                    {{--<input type="email" name="email" class="form-control" value="{{$editar->email}}">--}}
+                {{--<div class="form-group">--}}
+                    {{--<label class="control-label col-sm-2">Email:</label>--}}
+                    {{--<div class="col-sm-10">--}}
+                        {{--<input type="email" name="email" class="form-control" value="{{$editar->email}}">--}}
+                    {{--</div>--}}
                 {{--</div>--}}
-            {{--</div>--}}
 
 
-            {{--<div class="form-group">--}}
-                {{--<label class="control-label col-sm-2">Cidade:</label>--}}
-                {{--<div class="col-sm-10">--}}
-                    {{--<input type="text" name="cidade" class="form-control" value="{{$editar->cidade}}">--}}
+                {{--<div class="form-group">--}}
+                    {{--<label class="control-label col-sm-2">Cidade:</label>--}}
+                    {{--<div class="col-sm-10">--}}
+                        {{--<input type="text" name="cidade" class="form-control" value="{{$editar->cidade}}">--}}
+                    {{--</div>--}}
                 {{--</div>--}}
-            {{--</div>--}}
 
-            {{--<div class="form-group">--}}
-                {{--<label class="control-label col-sm-2">Endereço:</label>--}}
-                {{--<div class="col-sm-10">--}}
-                    {{--<input type="text" name="endereco" class="form-control" value="{{$editar->endereco}}">--}}
+                {{--<div class="form-group">--}}
+                    {{--<label class="control-label col-sm-2">Endereço:</label>--}}
+                    {{--<div class="col-sm-10">--}}
+                        {{--<input type="text" name="endereco" class="form-control" value="{{$editar->endereco}}">--}}
+                    {{--</div>--}}
                 {{--</div>--}}
-            {{--</div>--}}
 
-            {{--<button class="btn btn-default" type="submit">Salvar</button>--}}
-            {{--<button type="submit">Enviar</button>--}}
-            {{--<a href="{{url('usuarios')}}" class="btn btn-default">Voltar</a>--}}
+                {{--<button class="btn btn-default" type="submit">Salvar</button>--}}
+                {{--<button type="submit">Enviar</button>--}}
+                {{--<a href="{{url('usuarios')}}" class="btn btn-default">Voltar</a>--}}
 
-        {{--</form>--}}
+            {{--</form>--}}
 
     @endsection
