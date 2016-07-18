@@ -25,7 +25,7 @@
                         <td>{{$use->id}}</td>
                         <td>{{$use->nome}}</td>
                         <td>{{$use->email}}</td>
-                        <td>{{$use->cidade}}</td>
+{{--                        <td>{{$use->cidade}}</td>--}}
                     </tr>
                 @endforeach
             </tbody>
