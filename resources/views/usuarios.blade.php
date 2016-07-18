@@ -55,14 +55,14 @@
                 @foreach($users as $usuario)
                     <tr>
                         <td>{{$usuario->id}}</td>
-                        <td>{{ $usuario->nome }}</td>
+                        <td>{{$usuario->nome }}</td>
                         <td>{{$usuario->telefone}}</td>
                         <td>{{$usuario->email}}</td>
                         <td><p class="autor">{{$usuario->user->name}}</p></td>
                         <td>
+                            <a href="{{url('contato/user',['id'=>$usuario->id])}}" class="btn btn-success editable-table-button btn-xs">Visualizar</a>
                             @can('autorizacao', $usuario)
-                                <a href="{{url('contato/user',['id'=>$usuario->id])}}" class="btn btn-success editable-table-button btn-xs">Visualizar</a>
-                                <a href="{{url("usuarios/editar",['id'=>$usuario->id])}}" class="btn btn-warning editable-table-button btn-xs">Editar</a>
+                            <a href="{{url("usuarios/editar",['id'=>$usuario->id])}}" class="btn btn-warning editable-table-button btn-xs">Editar</a>
 {{--                                <a href="{{url("usuarios/excluir/$usuario->id")}}" onclick="return confirm('Deseja Excluir {{$usuario->nome}}')" class="btn btn-danger editable-table-button btn-xs">Excluir</a>--}}
                                 <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal" data-target="#delete-modal">Excluir</a>
 

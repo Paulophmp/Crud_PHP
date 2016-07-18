@@ -9,7 +9,7 @@
                 <h4 class="modal-title" id="modalLabel">Excluir Item</h4>
             </div>
             <div class="modal-body">
-                <p>Deseja realmente excluir este {{$usuario->id}}?</p>
+                <p>Deseja realmente excluir este {{$usuario->nome}}?</p>
             </div>
             <div class="modal-footer">
                 <a type="button" class="btn btn-success delete" href="{{url("usuarios/excluir/$usuario->id")}}">Sim</a>

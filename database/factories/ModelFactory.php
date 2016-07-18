@@ -23,6 +23,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 $fakerBr = Faker\factory::create('pt_BR');
 $factory->define(App\meuModel::class, function (Faker\Generator $faker) use ($fakerBr) {
     return [
+//        'user_id' =>factory(App\User::class)->id,
         'nome' => $fakerBr->name,
         'telefone'=>$fakerBr->phonenumber,
         'email' => $fakerBr->safeEmail,
