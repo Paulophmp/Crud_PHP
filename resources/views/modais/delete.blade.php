@@ -1,6 +1,6 @@
 
 <!-- Modal Delete-->
-<div class="modal fade modal" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+<div class="modal fade modal" id="delete-modal_{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <img src="/img/intelbras.png">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Gate;
 use App\meuModel;
 use Illuminate\Http\Request;
 
@@ -24,8 +25,8 @@ class MeuController extends Controller
     {
 //		$user = $mod->all()->orderBy('nome', 'ASC')->get();
 //		$user = $mod->where('user_id', auth()->user()->id)->get();
-        $user = $model->all();
-        //$user = meuModel::paginate(15);
+       // $user = $model->all();
+       $user = meuModel::paginate(15);
         return view('usuarios',['users'=>$user]);
     }
 
@@ -53,7 +54,7 @@ class MeuController extends Controller
     {
         $input = $request->all();
         meuModel::create($input);
-
+        
         return redirect('usuarios')->with('status','Criado com Sucesso');
     }
 
@@ -70,6 +71,9 @@ class MeuController extends Controller
 
     public function edit($id){
         $editar = meuModel::find($id);
+        if( Gate::denies('autorizacao', $editar))
+            abort(403,'Não Autorizado ');
+
         return view('edit', compact('editar'));
     }
 

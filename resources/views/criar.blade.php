@@ -78,6 +78,23 @@
                 </div>
             </div>
 
+            <div class="form-group" id="inputFile">
+                <label class="control-label col-sm-2">Envie seu Curriculo:</label>
+                <div class="col-sm-10">
+                    <input type="file" name="documento" id="documento" class="form-control">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Envie seu Curriculo:</label>
+                <div class="col-sm-10">
+                    <span class="btn btn-success fileinput-button">
+                        <i class="glyphicon glyphicon-plus"></i>
+                    <span>Selecionar Arquivos...</span>
+                     <input id="fileupload" type="file" name="documento">
+                    </span>
+                </div>
+            </div>
 
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" >Cadastra</button>

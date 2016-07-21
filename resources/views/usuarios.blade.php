@@ -64,18 +64,19 @@
                             @can('autorizacao', $usuario)
                             <a href="{{url("usuarios/editar",['id'=>$usuario->id])}}" class="btn btn-warning editable-table-button btn-xs">Editar</a>
 {{--                                <a href="{{url("usuarios/excluir/$usuario->id")}}" onclick="return confirm('Deseja Excluir {{$usuario->nome}}')" class="btn btn-danger editable-table-button btn-xs">Excluir</a>--}}
-                                <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal" data-target="#delete-modal">Excluir</a>
+                                <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal" data-target="#delete-modal_{{$usuario->id}}">Excluir</a>
 
                                 @include("modais.delete")
                             @endcan
-
                         </td>
+
                     </tr>
                 @endforeach
 
                 </tbody>
 
              </table>
+            {!! $users->render() !!}
             {{--<div class="form-group">--}}
                 {{--<div class="input-group margin-bottom-sm">--}}
                     {{--<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>--}}
