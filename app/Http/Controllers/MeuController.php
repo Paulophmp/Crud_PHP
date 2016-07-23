@@ -53,6 +53,13 @@ class MeuController extends Controller
     public function store(UserRequest $request)
     {
         $input = $request->all();
+
+            $file = $request->file('documento');
+            $salvar = storage_path().'/documentos';
+            $nomeFile = $file->getClientOriginalName();
+            $file->move($salvar, $nomeFile);
+
+//        dd($input);
         meuModel::create($input);
         
         return redirect('usuarios')->with('status','Criado com Sucesso');

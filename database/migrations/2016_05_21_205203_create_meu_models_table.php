@@ -21,6 +21,7 @@ class CreateMeuModelsTable extends Migration
             $table->string('email', 255);
             $table->string('estado', 20);
             $table->string('cidade', 60);
+            $table->string('documento',255);
             $table->string('endereco', 60);
             $table->timestamps();
         });

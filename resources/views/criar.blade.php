@@ -1,5 +1,6 @@
 
 
+
     @extends('layout.master')
     @section('title', 'Criar Usuário')
     @section('container')
@@ -14,7 +15,7 @@
                 </ul>
             @endif
 
-        <form method="post" action="usuarios/store" class="form-horizontal">
+        <form method="post" action="usuarios/store" class="form-horizontal" enctype="multipart/form-data">
                 {!! csrf_field() !!}
 
             <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
@@ -85,16 +86,16 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="control-label col-sm-2">Envie seu Curriculo:</label>
-                <div class="col-sm-10">
-                    <span class="btn btn-success fileinput-button">
-                        <i class="glyphicon glyphicon-plus"></i>
-                    <span>Selecionar Arquivos...</span>
-                     <input id="fileupload" type="file" name="documento">
-                    </span>
-                </div>
-            </div>
+            {{--<div class="form-group">--}}
+                {{--<label class="control-label col-sm-2">Envie seu Curriculo:</label>--}}
+                {{--<div class="col-sm-10">--}}
+                    {{--<span class="btn btn-success fileinput-button">--}}
+                        {{--<i class="glyphicon glyphicon-plus"></i>--}}
+                    {{--<span>Selecionar Arquivos...</span>--}}
+                     {{--<input id="fileupload" type="file" name="documento">--}}
+                    {{--</span>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" >Cadastra</button>

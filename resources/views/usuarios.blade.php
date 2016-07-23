@@ -67,6 +67,9 @@
                                 <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal" data-target="#delete-modal_{{$usuario->id}}">Excluir</a>
 
                                 @include("modais.delete")
+                                @else
+
+                                sem Permissao de Editar
                             @endcan
                         </td>
 

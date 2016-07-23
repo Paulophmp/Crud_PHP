@@ -15,11 +15,11 @@
                 <th>ID</th>
                 <th>Names</th>
                 <th>Emails</th>
-                <th>Cidade</th>
             </tr>
             </thead>
 
             <tbody>
+            @if(count($nome) > 0)
                 @foreach( $nome as $use )
                     <tr>
                         <td>{{$use->id}}</td>
@@ -28,6 +28,10 @@
 {{--                        <td>{{$use->cidade}}</td>--}}
                     </tr>
                 @endforeach
+            @else
+                <td>
+                    Nenhum dado encontrado!</td>
+            @endif
             </tbody>
         </table>
 
