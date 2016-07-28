@@ -26,7 +26,8 @@ class UserRequest extends Request
         return [
             'nome'=>'required',
             'telefone'=>'required',
-            'email'=> 'required'
+            'email'=> 'required',
+            'documento'=>'required'
         ];
     }
 }

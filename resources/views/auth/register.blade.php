@@ -29,6 +29,14 @@
                 </div>
 
                 <div class="form-group has-feedback">
+                    <label class="col-md-4 control-label" for="nome">Sobrenome</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="sobrename" value="{{ old('name') }}" id="sobrenome">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                </div>
+
+                <div class="form-group has-feedback">
                     <label class="col-md-4 control-label" for="email">Email</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="email" name="email" value="{{ old('name') }}">

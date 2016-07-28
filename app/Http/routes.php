@@ -32,6 +32,8 @@ Route::put('usuarios/atualizar/{id}', 'MeuController@update');
 
 Route::get('contato/user/{id}', 'MeuController@user');
 
+Route::get('download/{id}', 'MeuController@download');
+
 Route::get('search', 'MeuController@search');
 
 Route::post('contato/store', 'ContadoController@sendEmail');

@@ -54,15 +54,26 @@ class MeuController extends Controller
     {
         $input = $request->all();
 
-            $file = $request->file('documento');
-            $salvar = storage_path().'/documentos';
-            $nomeFile = $file->getClientOriginalName();
-            $file->move($salvar, $nomeFile);
+        $file = $request->file('documento');
+        $salvar = storage_path().'/documentos/';
+        $nomeFile = $file->getClientOriginalName();
 
+        $fileModel = new \App\meuModel();
+        $fileModel->documento = $nomeFile;
+
+        $file->move($salvar, $nomeFile);
 //        dd($input);
         meuModel::create($input);
         
         return redirect('usuarios')->with('status','Criado com Sucesso');
+    }
+
+    public function download($id)
+    {
+        $file = \App\meuModel::find($id);
+        $salvar = storage_path().'/documentos/';
+//        dd($salvar);
+        return \Response::download($salvar.'/'.$file->documento);
     }
 
     public function destroy($id)

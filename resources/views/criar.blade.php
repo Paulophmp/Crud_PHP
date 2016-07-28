@@ -7,13 +7,13 @@
 
         <h3>Novo Usuário</h3>
 
-            @if($errors->any())
-                <ul class="alert alert-danger text-center">
-                    @foreach($errors->all() as $error)
-                        <ul>{{  $error }}</ul>
-                    @endforeach
-                </ul>
-            @endif
+            {{--@if($errors->any())--}}
+                {{--<ul class="alert alert-danger text-center">--}}
+                    {{--@foreach($errors->all() as $error)--}}
+                        {{--<ul>{{  $error }}</ul>--}}
+                    {{--@endforeach--}}
+                {{--</ul>--}}
+            {{--@endif--}}
 
         <form method="post" action="usuarios/store" class="form-horizontal" enctype="multipart/form-data">
                 {!! csrf_field() !!}
@@ -32,17 +32,27 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">
                 <label class="control-label col-sm-2">Telefone:</label>
                 <div class="col-sm-10">
                     <input type="tel" name="telefone" class="form-control">
+                    @if ($errors->has('telefone'))
+                        <span class="help-block">
+                                   <strong>{{ $errors->first('telefone') }}</strong>
+                               </span>
+                    @endif
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <label class="control-label col-sm-2">Email:</label>
                 <div class="col-sm-10">
                     <input type="email" name="email" class="form-control">
+                    @if ($errors->has('email'))
+                        <span class="help-block">
+                                   <strong>{{ $errors->first('email') }}</strong>
+                               </span>
+                    @endif
                 </div>
             </div>
 
@@ -79,27 +89,29 @@
                 </div>
             </div>
 
-            <div class="form-group" id="inputFile">
+            <div class="form-group{{ $errors->has('documento') ? ' has-error' : '' }}">
                 <label class="control-label col-sm-2">Envie seu Curriculo:</label>
                 <div class="col-sm-10">
                     <input type="file" name="documento" id="documento" class="form-control">
+                    @if ($errors->has('documento'))
+                        <span class="help-block">
+                            <strong>{{ $errors->first('documento') }}</strong>
+                        </span>
+                    @endif
                 </div>
             </div>
 
-            {{--<div class="form-group">--}}
-                {{--<label class="control-label col-sm-2">Envie seu Curriculo:</label>--}}
-                {{--<div class="col-sm-10">--}}
-                    {{--<span class="btn btn-success fileinput-button">--}}
-                        {{--<i class="glyphicon glyphicon-plus"></i>--}}
-                    {{--<span>Selecionar Arquivos...</span>--}}
-                     {{--<input id="fileupload" type="file" name="documento">--}}
-                    {{--</span>--}}
-                {{--</div>--}}
-            {{--</div>--}}
 
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" >Cadastra</button>
             </div>
+
+            {{--<div class="form-group has-error has-feedback">--}}
+                {{--<label class="control-label" for="">Entrada com erro</label>--}}
+                {{--<input type="text" class="form-control" id="" aria-describedby="">--}}
+                {{--<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>--}}
+                {{--<span id="inputError2Status" class="sr-only">(erro)</span>--}}
+            {{--</div>--}}
 
         </form>
         @endsection

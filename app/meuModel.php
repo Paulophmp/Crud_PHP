@@ -13,7 +13,8 @@ class meuModel extends Model
         'telefone',
         'cidade',
         'estado',
-        'endereco'
+        'endereco',
+        'documento'
     ];
 
     public static $rules = [

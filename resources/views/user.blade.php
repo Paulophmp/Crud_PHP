@@ -54,6 +54,11 @@
                         <strong>Endereco: </strong> {{ $user->endereco  }}
                     </div>
 
+
+                    <div class="form-group">
+                        <strong>Documento: </strong> <a href="{{url("download/$user->id")}}" title="Download">{{ $user->documento  }}</a>
+                    </div>
+{{$data = date("d/m/Y")}}
                 </div>
             </div>
         @endsection

@@ -62,7 +62,7 @@ return [
     'numeric'              => 'O campo :attribute deverá conter um valor numérico.',
     'present'              => 'O campo :attribute deverá estar presente.',
     'regex'                => 'O formato do valor para o campo :attribute é inválido.',
-    'required'             => 'O campo :attribute é obrigatório.',
+    'required'             => 'O campo :attribute .',
     'required_if'          => 'O campo :attribute é obrigatório quando o valor do campo :other é igual a :value.',
     'required_unless'      => 'O campo :attribute é obrigatório a menos que :other esteja presente em :values.',
     'required_with'        => 'O campo :attribute é obrigatório quando :values está presente.',
@@ -110,7 +110,13 @@ return [
     */
 
     'attributes'           => [
-        //
+        'nome' =>'Nome é Obrigatorio',//referente ao name=nome do campo de criacao de usuário
+        'telefone' =>'Telefone é Obrigatorio',//referente ao name=telefone do campo de criacao de usuário
+        'estado' =>'Telefone é Obrigatorio',//referente ao name=telefone do campo de criacao de usuário
+        'name' =>'Nome é Obrigatorio',
+        'email' =>'Email deve conter @intelbras.com.br ',
+        'password' =>'Senha é Obrigatorio',
+        'documento' =>'Documento é Obrigatorio'
     ],
 
 ];
