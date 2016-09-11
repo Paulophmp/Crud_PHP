@@ -13,6 +13,7 @@ class meuModel extends Model
         'telefone',
         'cidade',
         'estado',
+        'dataNascimento',
         'endereco',
         'documento'
     ];

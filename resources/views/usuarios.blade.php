@@ -1,24 +1,39 @@
 
-
     @extends('layout.template1')
     @section('title', 'Usuários')
     @section('container')
 
+<script src="/js/usuarios.js"></script>
+<script src="/js/jquery-2.0.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+//        $("#teste").click(function(){
+//           $(this).hide(2000);
+//        })
+        setTimeout(function () {
+            $('#close').trigger('click');
+        }, 1500);
+    });
+</script>
+
         <h2>Usuários</h2>
 
         @if(session('status'))
-
-            <div class="row">
+            <div class="row" id="teste">
                 <div class="alert alert-success alert-dismissable fa in text-center col-md-6 col-md-offset-3">
-                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    <button href="#" class="close" data-dismiss="alert" id="close">&times;</button>
                     <h4><i class="icon fa fa-check">Alerta!</i></h4>
                     <strong>{{session('status')}}</strong>...
                 </div>
             </div>
 
         @elseif(session('status1'))
-            <div class="alert alert-danger text-center">
-                {{session('status1')}}
+            <div class="row" id="teste">
+                <div class="alert alert-danger alert-dismissable fa in text-center col-md-6 col-md-offset-3">
+                    <button href="#" class="close" data-dismiss="alert" id="close">&times;</button>
+                    <h4><i class="icon fa fa-check">Alerta!</i></h4>
+                    <strong>{{session('status1')}}</strong>...
+                </div>
             </div>
         @endif
 
@@ -40,7 +55,7 @@
             <div class="alert alert-info text-center">Nenhum usuário cadastrado</div>
 
         @else
-            <table class="table table-bordered table-hover table-condensed table-striped">
+            <table  id="datatable" class="table table-bordered table-hover table-condensed table-striped">
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -62,17 +77,14 @@
                         <td>
                             <a href="{{url('contato/user',['id'=>$usuario->id])}}" class="btn btn-success editable-table-button btn-xs">Visualizar</a>
                             @can('autorizacao', $usuario)
-                            <a href="{{url("usuarios/editar",['id'=>$usuario->id])}}" class="btn btn-warning editable-table-button btn-xs">Editar</a>
+{{--                            <a href="{{url("usuarios/editar",['id'=>$usuario->id])}}" class="btn btn-warning editable-table-button btn-xs">Editar</a>--}}
+                                @include("modais.editar")
+                                    <a class="btn btn-warning editable-table-button btn-xs"  data-toggle="modal" data-target="#modal-delete_{{$usuario->id}}">Editar
 {{--                                <a href="{{url("usuarios/excluir/$usuario->id")}}" onclick="return confirm('Deseja Excluir {{$usuario->nome}}')" class="btn btn-danger editable-table-button btn-xs">Excluir</a>--}}
-                                <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal" data-target="#delete-modal_{{$usuario->id}}">Excluir</a>
-
+                                    <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal" data-target="#delete-modal_{{$usuario->id}}">Excluir</a>
                                 @include("modais.delete")
-                                @else
-
-                                sem Permissao de Editar
                             @endcan
                         </td>
-
                     </tr>
                 @endforeach
 
@@ -80,6 +92,7 @@
 
              </table>
             {!! $users->render() !!}
+
             {{--<div class="form-group">--}}
                 {{--<div class="input-group margin-bottom-sm">--}}
                     {{--<span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>--}}

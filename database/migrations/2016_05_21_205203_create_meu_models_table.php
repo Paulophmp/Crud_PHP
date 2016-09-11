@@ -18,6 +18,7 @@ class CreateMeuModelsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('nome', 255);
             $table->string('telefone', 255);
+            $table->dateTime('dataNascimento');
             $table->string('email', 255);
             $table->string('estado', 20);
             $table->string('cidade', 60);

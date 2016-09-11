@@ -1,19 +1,17 @@
 
-
-
     @extends('layout.master')
     @section('title', 'Criar Usuário')
     @section('container')
+<script src="/js/jquery-2.0.0.min.js"></script>
+<script src="/js/mascara-telefone.js"></script>
+<script>
+    jQuery(function($){
+        $("#phone").mask("(99) 9999-9999");
+    });
+
+</script>
 
         <h3>Novo Usuário</h3>
-
-            {{--@if($errors->any())--}}
-                {{--<ul class="alert alert-danger text-center">--}}
-                    {{--@foreach($errors->all() as $error)--}}
-                        {{--<ul>{{  $error }}</ul>--}}
-                    {{--@endforeach--}}
-                {{--</ul>--}}
-            {{--@endif--}}
 
         <form method="post" action="usuarios/store" class="form-horizontal" enctype="multipart/form-data">
                 {!! csrf_field() !!}
@@ -29,18 +27,43 @@
                                    <strong>{{ $errors->first('nome') }}</strong>
                                </span>
                          @endif
-                </div>
+                    </div>
             </div>
+
+            {{--<div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">--}}
+                {{--<label class="control-label col-sm-2">Telefone:</label>--}}
+                {{--<div class="col-sm-5">--}}
+                    {{--<input type="tel" name="telefone" class="form-control" id="phone">--}}
+                    {{--@if ($errors->has('telefone'))--}}
+                        {{--<span class="help-block">--}}
+                            {{--<strong>{{ $errors->first('telefone') }}</strong>--}}
+                        {{--</span>--}}
+                    {{--@endif--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
             <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">
                 <label class="control-label col-sm-2">Telefone:</label>
-                <div class="col-sm-10">
-                    <input type="tel" name="telefone" class="form-control">
-                    @if ($errors->has('telefone'))
-                        <span class="help-block">
-                                   <strong>{{ $errors->first('telefone') }}</strong>
-                               </span>
-                    @endif
+                <div class='col-sm-5'>
+                    <div class="input-group">
+                        <input type='text' id="phone" name="telefone" class="form-control" />
+                        <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-earphone"></span>
+                             </span>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-2">Data Nascimento:</label>
+                    <div class='col-sm-5'>
+                        <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                            <input type='text' id="datepicker" name="dataNascimento" class="form-control" />
+                             <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                             </span>
+                    </div>
                 </div>
             </div>
 
@@ -101,6 +124,13 @@
                 </div>
             </div>
 
+
+            <script type="text/javascript">
+                $(document).off('.datepicker.data-api');
+            $('.datepicker').datepicker({
+                language: "pt-BR",
+            });
+            </script>
 
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" >Cadastra</button>

@@ -20,6 +20,9 @@
         <link href="/css/modal.css" rel="stylesheet">
         <link rel="stylesheet" href="/font-awesome-4.6.3/css_awesome/font-awesome.min.css">
         <link rel="stylesheet" href="/jquery_upload/css/jquery.fileupload.css">
+        <link rel="stylesheet" href="/bootstrap-datepicker/css/bootstrap-datepicker3.css">
+        <link rel="stylesheet" href="/bootstrap-datepicker/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css">
     @show
 </head>
 
@@ -36,7 +39,7 @@
                 @if(Auth::user())
                     <li role="presentation" class="active"><a href="/">Home</a></li>
 
-                    <li role="presentation" ><a href="sobre">Sobre</a></li>
+                    <li role="presentation"><a href="sobre">Sobre</a></li>
                     <li role="presentation"><a href="usuarios">Usuários</a></li>
                     <li role="presentation"><a href="contato">Contato</a></li>
 
@@ -104,9 +107,7 @@
 
                                     </div>
                                 </div>
-
-
-
+                                {{--Fim Modal--}}
                             </li>
                         @endif
                     </li>
@@ -122,8 +123,17 @@
 </div> <!-- /container -->
     @section('script')
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="/js/jquery-3.0.0.js"><\/script>')</script>
+        {{--<!--<script>window.jQuery || document.write('<script src="/js/jquery-3.0.0.js"><\/script>')</script>-->--}}
         <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/jquery-2.0.0.min.js"></script>
+        <script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+
+        {{--<script>--}}
+            {{--$("#sandbox-container .input-group.date").datepicker({--}}
+                {{--language: "pt-BR"--}}
+            {{--});--}}
+        {{--</script>--}}
     @show
 <hr>
 <footer>

@@ -19,7 +19,7 @@
                     <label class="control-label col-sm-3">Email:</label>
                     <div class="col-sm-8">
                         <input type="email" name="email" class="form-control">
-                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         </div>
                 </div>
 

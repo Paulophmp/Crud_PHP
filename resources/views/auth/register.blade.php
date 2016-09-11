@@ -11,15 +11,13 @@
             <form method="POST" class="form-horizontal" action="{{url('/auth/register')}}">
                 {!! csrf_field() !!}
                 @if(count($errors) > 0 )
-                    {{--                     @if($errors->any())--}}
+                    {{--@if($errors->any())--}}
                     <ul class="alert alert-danger text-center">
                         @foreach($errors->all() as $error)
                             <ul>{{  $error }}</ul>
                         @endforeach
                     </ul>
                 @endif
-
-
                 <div class="form-group has-feedback">
                     <label class="col-md-4 control-label" for="nome">Nome</label>
                     <div class="col-md-6">
@@ -82,9 +80,6 @@
         </div>
     </div>
 
-    <script>
-        $('#phone').mask("(99) 9999-9999");
-    </script>
 
     @endsection
 

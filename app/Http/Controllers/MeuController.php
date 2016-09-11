@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\logUser;
 use DB;
 use Gate;
 use App\meuModel;
 use Illuminate\Http\Request;
-
+use DateTime;
 use App\Http\Requests\UserRequest;
 
 class MeuController extends Controller
@@ -21,12 +22,12 @@ class MeuController extends Controller
         return view('welcome');
     }
 
-    public function usuarios(meuModel $model)
+    public function usuarios(meuModel $mod)
     {
 //		$user = $mod->all()->orderBy('nome', 'ASC')->get();
 //		$user = $mod->where('user_id', auth()->user()->id)->get();
-       // $user = $model->all();
-       $user = meuModel::paginate(15);
+//        $user = $mod->all();
+       $user = $mod::paginate(15);
         return view('usuarios',['users'=>$user]);
     }
 
@@ -59,12 +60,20 @@ class MeuController extends Controller
         $nomeFile = $file->getClientOriginalName();
 
         $fileModel = new \App\meuModel();
+
         $fileModel->documento = $nomeFile;
 
         $file->move($salvar, $nomeFile);
-//        dd($input);
         meuModel::create($input);
-        
+
+        $LogUser = new logUser();
+        $arrDados = array([
+            'acao' => 'INSERIDO/CRIADO',
+            'data' => new DateTime(),
+            'usuario' => 'nome',
+        ]);
+        $arrDados = $LogUser::insert($arrDados);
+
         return redirect('usuarios')->with('status','Criado com Sucesso');
     }
 
@@ -81,6 +90,15 @@ class MeuController extends Controller
         $delete = meuModel::find($id);
         $delete->delete();
         //meuModel::find($id)->delete();
+
+        $LogUser = new logUser();
+        $arrDados = array([
+            'acao' => 'EXCLUIDO',
+            'data' => new DateTime('now'),
+            'usuario' =>  '',
+        ]);
+        $arrDados = $LogUser::insert($arrDados);
+
         return redirect('usuarios')->with('status1','Deletado com Sucesso');
 
 //        meuModel::find($id)->delete();
@@ -92,6 +110,13 @@ class MeuController extends Controller
         if( Gate::denies('autorizacao', $editar))
             abort(403,'Não Autorizado ');
 
+        $LogUser = new logUser();
+        $arrDados = array([
+            'acao' => 'EDITADO',
+            'data' => new DateTime('now'),
+            'usuario' => 'user',
+        ]);
+        $arrDados = $LogUser::insert($arrDados);
         return view('edit', compact('editar'));
     }
 
@@ -109,7 +134,6 @@ class MeuController extends Controller
     {
         $post = $request->all();
         $nomePost = isset($post['nome']) ? $post['nome'] : "";
-//        echo "<pre>",var_dump($request->all()),"</pre>";
         $nome = DB::table('meu_models')
             ->select('id','nome', 'email', 'cidade')
             ->where('nome',"LIKE", "%$nomePost%")
