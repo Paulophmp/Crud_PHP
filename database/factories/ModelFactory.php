@@ -25,9 +25,10 @@ $factory->define(App\meuModel::class, function (Faker\Generator $faker) use ($fa
     return [
         'user_id' => '1',
         'nome' => $fakerBr->name,
-        'telefone'=>$fakerBr->phonenumber,
+        'telefone'=> $fakerBr->phonenumber,
         'email' => $fakerBr->safeEmail,
         'estado' => $fakerBr->stateAbbr,
+        'dataNascimento' => $fakerBr->date($format = 'Y-m-d'),
         'cidade' => $fakerBr->city,
         'endereco'=>$fakerBr->streetAddress,
     ];

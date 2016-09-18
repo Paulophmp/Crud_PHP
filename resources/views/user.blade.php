@@ -39,6 +39,10 @@
                     </div>
 
                     <div class="form-group">
+                        <strong>Data Nascimento: </strong> {{ $user->dataNascimento  }}
+                    </div>
+
+                    <div class="form-group">
                         <strong>E-mail: </strong> {{ $user->email  }}
                     </div>
 
@@ -54,11 +58,11 @@
                         <strong>Endereco: </strong> {{ $user->endereco  }}
                     </div>
 
-
                     <div class="form-group">
                         <strong>Documento: </strong> <a href="{{url("download/$user->id")}}" title="Download">{{ $user->documento  }}</a>
                     </div>
-{{$data = date("d/m/Y")}}
+                        Criado em {{$user->created_at}}
+                        {{--Criado em{{$data = date("d/m/Y")}}--}}
                 </div>
             </div>
         @endsection

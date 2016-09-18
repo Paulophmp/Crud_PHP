@@ -58,7 +58,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-2">Data Nascimento:</label>
                     <div class='col-sm-5'>
-                        <div class="input-group date" data-provide="datepicker" data-date-format="dd/mm/yyyy">
+                        <div class="input-group date"  data-date-format="dd/mm/yyyy">
                             <input type='text' id="datepicker" name="dataNascimento" class="form-control" />
                              <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-calendar"></span>
@@ -124,11 +124,15 @@
                 </div>
             </div>
 
-
-            <script type="text/javascript">
-                $(document).off('.datepicker.data-api');
-            $('.datepicker').datepicker({
-                language: "pt-BR",
+            <script src="/js/jquery-2.0.0.min.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script src="/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+            <script src="/bootstrap-datepicker/locales/bootstrap-datepicker.pt-BR.min.js"></script>
+            <script>
+                $('.input-group.date').datepicker({
+                    language: 'pt-BR',
+                    orientation: 'bottom right',
+                    clearBtn: true,
             });
             </script>
 

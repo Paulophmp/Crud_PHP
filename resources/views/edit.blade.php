@@ -2,11 +2,15 @@
 
     @extends('layout.master')
     @section('container')
-        <style>
-            .block{
-                pointer-events: none;
-            }
-        </style>
+
+        <script src="/js/jquery-2.0.0.min.js"></script>
+        <script src="/js/mascara-telefone.js"></script>
+        <script>
+            jQuery(function($){
+                $("#phone").mask("(99) 9999-9999");
+            });
+
+        </script>
 
         <h3>Atualizar Usuário</h3>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\logUser;
+use Carbon\Carbon;
 use DB;
 use Gate;
 use App\meuModel;
@@ -27,7 +28,7 @@ class MeuController extends Controller
 //		$user = $mod->all()->orderBy('nome', 'ASC')->get();
 //		$user = $mod->where('user_id', auth()->user()->id)->get();
 //        $user = $mod->all();
-       $user = $mod::paginate(15);
+       $user = $mod::paginate(55);
         return view('usuarios',['users'=>$user]);
     }
 

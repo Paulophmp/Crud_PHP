@@ -15,7 +15,6 @@
         }, 1500);
     });
 </script>
-
         <h2>Usuários</h2>
 
         @if(session('status'))
@@ -53,7 +52,6 @@
 
         @if($users->isEmpty())
             <div class="alert alert-info text-center">Nenhum usuário cadastrado</div>
-
         @else
             <table  id="datatable" class="table table-bordered table-hover table-condensed table-striped">
                 <thead>
