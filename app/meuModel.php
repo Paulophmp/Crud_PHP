@@ -28,4 +28,21 @@ class meuModel extends Model
     {
 		return $this->belongsTo(User::class);
 	}
+
+//    /**
+//     * Save a new model and return the instance.
+//     *
+//     * @param  array  $attributes
+//     * @return static
+//     */
+//    public static function create(array $attributes = [])
+//    {
+//        $attributes['dataNascimento'] = implode("-",array_reverse(explode("/", $attributes['dataNascimento'])));
+//
+//        $model = new static($attributes);
+//
+//        $model->save();
+//
+//        return $model;
+//    }
 }

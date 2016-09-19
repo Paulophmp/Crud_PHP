@@ -64,6 +64,9 @@ class MeuController extends Controller
 
         $fileModel->documento = $nomeFile;
 
+        $input['dataNascimento'] = implode("-",array_reverse(explode("/", $input['dataNascimento'])));
+//echo "<pre>",print_r($input),"</pre>";
+//        exit;
         $file->move($salvar, $nomeFile);
         meuModel::create($input);
 
