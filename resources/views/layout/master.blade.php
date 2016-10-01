@@ -23,6 +23,9 @@
         <link rel="stylesheet" href="/bootstrap-datepicker/css/bootstrap-datepicker3.css">
         <link rel="stylesheet" href="/bootstrap-datepicker/css/bootstrap-datepicker.css">
         <link rel="stylesheet" href="/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css">
+        <link rel="stylesheet" href="/craftyslide/css/craftyslide.css">
+        <!-- Rhinoslider-->
+        <link rel="stylesheet" href="/rhinoslider/css/rhinoslider-1.05.css">
     @show
 </head>
 
@@ -127,13 +130,11 @@
         <script src="/js/bootstrap.min.js"></script>
         <script src="/js/jquery-2.0.0.min.js"></script>
         <script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-
-
-        {{--<script>--}}
-            {{--$("#sandbox-container .input-group.date").datepicker({--}}
-                {{--language: "pt-BR"--}}
-            {{--});--}}
-        {{--</script>--}}
+        <script src="/craftyslide/js/craftyslide.min.js"></script>
+        <!--Rhinoslider-->
+        <script type="text/javascript" src="/rhinoslider/js/rhinoslider-1.05.min.js"></script>
+        <script type="text/javascript" src="/rhinoslider/js/mousewheel.js"></script>
+        <script type="text/javascript" src="/rhinoslider/js/easing.js"></script>
     @show
 <hr>
 <footer>

@@ -28,7 +28,7 @@ class MeuController extends Controller
 //		$user = $mod->all()->orderBy('nome', 'ASC')->get();
 //		$user = $mod->where('user_id', auth()->user()->id)->get();
 //        $user = $mod->all();
-       $user = $mod::paginate(55);
+       $user = $mod::paginate(15);
         return view('usuarios',['users'=>$user]);
     }
 
@@ -64,9 +64,9 @@ class MeuController extends Controller
 
         $fileModel->documento = $nomeFile;
 
+//        Revertendo o formato do campo data '05/07/1991' para o formato ('Y-mm-dd')=> '1991-07-05';
         $input['dataNascimento'] = implode("-",array_reverse(explode("/", $input['dataNascimento'])));
-//echo "<pre>",print_r($input),"</pre>";
-//        exit;
+
         $file->move($salvar, $nomeFile);
         meuModel::create($input);
 

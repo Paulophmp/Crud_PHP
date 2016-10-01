@@ -11,7 +11,7 @@ class SeederUsuario extends Seeder
      */
     public function run()
     {
-        DB::table('meu_models')->truncate();
-        factory(App\meuModel::class, 10)->create();
+//        DB::table('meu_models')->truncate();
+        factory(App\meuModel::class, 5)->create();
     }
 }

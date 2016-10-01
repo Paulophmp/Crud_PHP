@@ -31,35 +31,35 @@
                         <a href="{{url('usuarios')}}" class="btn btn-default">Voltar</a>
                     </div>
                     <div class="form-group">
-                        <strong>Name: </strong> {{ $user->nome  }}
+                        <strong>Name: </strong> {{ $user->nome }}
                     </div>
 
                     <div class="form-group">
-                        <strong>Telefone: </strong> {{ $user->telefone  }}
+                        <strong>Telefone: </strong> {{ $user->telefone }}
                     </div>
 
                     <div class="form-group">
-                        <strong>Data Nascimento: </strong> {{ $user->dataNascimento  }}
+                        <strong>Data Nascimento: </strong> {{ $user->dataNascimento }}
                     </div>
 
                     <div class="form-group">
-                        <strong>E-mail: </strong> {{ $user->email  }}
+                        <strong>E-mail: </strong> {{ $user->email }}
                     </div>
 
                     <div class="form-group">
-                        <strong>Estado: </strong> {{ $user->estado  }}
+                        <strong>Estado: </strong> {{ $user->estado }}
                     </div>
 
                     <div class="form-group">
-                        <strong>Cidade: </strong> {{ $user->cidade  }}
+                        <strong>Cidade: </strong> {{ $user->cidade }}
                     </div>
 
                     <div class="form-group">
-                        <strong>Endereco: </strong> {{ $user->endereco  }}
+                        <strong>Endereco: </strong> {{ $user->endereco }}
                     </div>
 
                     <div class="form-group">
-                        <strong>Documento: </strong> <a href="{{url("download/$user->id")}}" title="Download">{{ $user->documento  }}</a>
+                        <strong>Documento: </strong> <a href="{{url("download/$user->id")}}" title="Download">{{ $user->documento }}</a>
                     </div>
                         Criado em {{$user->created_at}}
                         {{--Criado em{{$data = date("d/m/Y")}}--}}

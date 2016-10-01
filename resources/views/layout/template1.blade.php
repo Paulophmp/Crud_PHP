@@ -46,7 +46,6 @@
                     <li>
                         {{--este que eu uso atualmente--}}
                         <a href="{{url('auth/register')}}">Registro</a>
-
                     </li>
                     @endif
                     </li>
@@ -71,7 +70,19 @@
     <script src="/media/js/jquery.dataTables.js"></script>
     <script>
         $(document).ready(function () {
-            $('#datatable').dataTable();
+            $('#datatable').dataTable({
+//                "scrollY":        "200px",
+//                "scrollCollapse": true,
+                "paging":         false,
+                "info": true,
+                "language": {
+                    "lengthMenu": "Display _MENU_ records per page",
+                    "zeroRecords": "<h4 style='color:#FFF; background-color: #00A65A;'>Nenhum dado encontrado !</h4>",
+                    "info": "Página _PAGE_ de _PAGES_",
+                    "infoEmpty": "Não há registros disponíveis",
+//                    "infoFiltered": "(filtered from _MAX_ total records)"
+                }
+            });
         });
     </script>
 @show

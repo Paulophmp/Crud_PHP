@@ -8,7 +8,6 @@
     jQuery(function($){
         $("#phone").mask("(99) 9999-9999");
     });
-
 </script>
 
         <h3>Novo Usuário</h3>
@@ -43,7 +42,7 @@
             {{--</div>--}}
 
             <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">
-                <label class="control-label col-sm-2">Telefone:</label>
+                <label class="control-label col-sm-2" for="phone">Telefone:</label>
                 <div class='col-sm-5'>
                     <div class="input-group">
                         <input type='text' id="phone" name="telefone" class="form-control" />
@@ -56,7 +55,7 @@
             </div>
 
             <div class="form-group">
-                <label class="control-label col-sm-2">Data Nascimento:</label>
+                <label class="control-label col-sm-2" for="datepicker">Data Nascimento:</label>
                     <div class='col-sm-5'>
                         <div class="input-group date"  data-date-format="dd/mm/yyyy">
                             <input type='text' id="datepicker" name="dataNascimento" class="form-control" />

@@ -7,12 +7,16 @@
 <script src="/js/jquery-2.0.0.min.js"></script>
 <script>
     $(document).ready(function() {
-//        $("#teste").click(function(){
-//           $(this).hide(2000);
-//        })
         setTimeout(function () {
             $('#close').trigger('click');
         }, 1500);
+
+        $('h2').animate({
+            "margin-left": "+=480",
+            "font-size": "3em"
+        },1000, function () {
+            $('h2').css("text-decoration", "underline");
+        });
     });
 </script>
         <h2>Usuários</h2>
@@ -36,7 +40,7 @@
             </div>
         @endif
 
-            <a href="{{url("create")}}" class="btn btn-primary">Novo Usuario</a>
+            <a href="{{url("create")}}" class="btn btn-primary" id="novoUser">Novo Usuario</a>
                 {{--Incio Form Busca usuário--}}
                 <form class="navbar-form navbar-right" method="get" action="{{url('search')}}">
                     <div class="input-group">
@@ -60,6 +64,7 @@
                         <th>Nome</th>
                         <th>Telefone</th>
                         <th>Email</th>
+                        <th>Estado</th>
                         <th>Autor</th>
                         <th>Ação</th>
                     </tr>
@@ -71,15 +76,17 @@
                         <td>{{$usuario->nome }}</td>
                         <td>{{$usuario->telefone}}</td>
                         <td>{{$usuario->email}}</td>
+                        <td>{{$usuario->estado}}</td>
                         <td><p class="autor">{{$usuario->user->name}}</p></td>
                         <td>
                             <a href="{{url('contato/user',['id'=>$usuario->id])}}" class="btn btn-success editable-table-button btn-xs">Visualizar</a>
                             @can('autorizacao', $usuario)
 {{--                            <a href="{{url("usuarios/editar",['id'=>$usuario->id])}}" class="btn btn-warning editable-table-button btn-xs">Editar</a>--}}
                                 @include("modais.editar")
-                                    <a class="btn btn-warning editable-table-button btn-xs"  data-toggle="modal" data-target="#modal-delete_{{$usuario->id}}">Editar
+                                    <a class="btn btn-warning editable-table-button btn-xs"  data-toggle="modal"
+                                       data-target="#modal-delete_{{$usuario->id}}">Editar
 {{--                                <a href="{{url("usuarios/excluir/$usuario->id")}}" onclick="return confirm('Deseja Excluir {{$usuario->nome}}')" class="btn btn-danger editable-table-button btn-xs">Excluir</a>--}}
-                                    <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal" data-target="#delete-modal_{{$usuario->id}}">Excluir</a>
+                                    <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal"  data-target="#delete-modal_{{$usuario->id}}">Excluir</a>
                                 @include("modais.delete")
                             @endcan
                         </td>
