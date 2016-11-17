@@ -4,7 +4,7 @@
     @section('title', 'Registro')
     @section('container')
 
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
         <div class="panel-heading">Registro</div>
         <div class="panel-body">
             {{-- Form --}}
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="form-group has-feedback">
-                    <label class="col-md-4 control-label" for="nome">Sobrenome</label>
+                    <label class="col-md-4 control-label" for="sobrenome">Sobrenome</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="sobrename" value="{{ old('name') }}" id="sobrenome">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -44,17 +44,17 @@
 
 
                 <div class="form-group has-feedback">
-                    <label class="col-md-4 control-label">Senha</label>
+                    <label class="col-md-4 control-label" for="senha">Senha</label>
                     <div class="col-md-6">
-                        <input type="password" class="form-control"  name="password">
+                        <input type="password" class="form-control"  name="password" id="senha">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                 </div>
 
                 <div class="form-group has-feedback">
-                    <label class="col-md-4 control-label">Confirma Senha</label>
+                    <label class="col-md-4 control-label" for="ConSenha">Confirma Senha</label>
                     <div class="col-md-6">
-                        <input type="password" class="form-control"  name="password_confirmation">
+                        <input type="password" class="form-control"  name="password_confirmation" id="ConSenha">
                         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                     </div>
                 </div>

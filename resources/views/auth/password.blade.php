@@ -3,7 +3,7 @@
     @section('title', 'Redefinir Senha')
     @section("container")
 
-        <div class="panel-body panel-default">
+        <div class="panel-body panel-primary">
             <div class="panel-heading">Reset Senha</div>
             <div class="panel-body">
                 <!-- resources/views/auth/password.blade.php -->

@@ -5,7 +5,7 @@
     @section('title', 'Login')
     @section('container')
 
-        <div class="panel panel-default">
+        <div class="panel panel-primary">
             <div class="panel-heading">Login</div>
              <div class="panel-body">
 
@@ -22,16 +22,16 @@
                 {!! csrf_field() !!}
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="mail">Email</label>
+                    <label class="col-md-4 control-label" for="Email">Email</label>
                     <div class="col-md-6">
-                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" id="mail">
+                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" id="Email">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-4 control-label" for="name">Senha</label>
+                    <label class="col-md-4 control-label" for="senha">Senha</label>
                     <div class="col-md-6">
-                        <input type="password" class="form-control" name="password" id="password" id="name">
+                        <input type="password" class="form-control" name="password"  id="senha">
                     </div>
                 </div>
 
