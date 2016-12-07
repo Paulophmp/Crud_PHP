@@ -70,28 +70,28 @@
                     </tr>
                 </thead>
                 <tbody>
-                {{--@foreach($users as $usuario)--}}
+                <?php foreach($users as $usuario) { ?>
                     <tr>
-                        <td>{{$usuario->id}}</td>
-                        <td>{{$usuario->nome }}</td>
-                        <td>{{$usuario->telefone}}</td>
-                        <td>{{$usuario->email}}</td>
-                        <td>{{$usuario->estado}}</td>
-                        <td><p class="autor">{{$usuario->user->name}}</p></td>
+                        <td><?php echo $usuario->id; ?></td>
+                        <td><?php echo $usuario->nome ?></td>
+                        <td><?php echo $usuario->telefone ?></td>
+                        <td><?php echo $usuario->email ?></td>
+                        <td><?php echo $usuario->estado ?></td>
+                        <td><p class="autor"><?php echo $usuario->user->name ?></p></td>
                         <td>
                             <a href="{{url('contato/user',['id'=>$usuario->id])}}" class="btn btn-success editable-table-button btn-xs">Visualizar</a>
                             @can('autorizacao', $usuario)
 {{--                            <a href="{{url("usuarios/editar",['id'=>$usuario->id])}}" class="btn btn-warning editable-table-button btn-xs">Editar</a>--}}
                                 @include("modais.editar")
                                     <a class="btn btn-warning editable-table-button btn-xs"  data-toggle="modal"
-                                       data-target="#modal-delete_{{$usuario->id}}">Editar
+                                       data-target="#modal-delete_{{$usuario->id}}">Editar</a>
 {{--                                <a href="{{url("usuarios/excluir/$usuario->id")}}" onclick="return confirm('Deseja Excluir {{$usuario->nome}}')" class="btn btn-danger editable-table-button btn-xs">Excluir</a>--}}
-                                    <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal"  data-target="#delete-modal_{{$usuario->id}}">Excluir</a>
                                 @include("modais.delete")
+                                    <a class="btn btn-danger editable-table-button btn-xs" data-toggle="modal"  data-target="#delete-modal_{{$usuario->id}}">Excluir</a>
                             @endcan
                         </td>
                     </tr>
-                @endforeach
+                <?php }?>
 
                 </tbody>
 
