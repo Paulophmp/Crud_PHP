@@ -29,7 +29,7 @@
                 <div class="form-group has-feedback">
                     <label class="col-md-4 control-label" for="sobrenome">Sobrenome</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="sobrename" value="{{ old('name') }}" id="sobrenome">
+                        <input type="text" class="form-control" name="sobrenome" value="{{ old('name') }}" id="sobrenome">
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                 </div>
