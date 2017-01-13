@@ -18,6 +18,7 @@
         <link href="/css/style.css" rel="stylesheet">
         <link href="/css/jumbotron-narrow.css" rel="stylesheet">
         <link href="/css/modal.css" rel="stylesheet">
+        {{--<link href="/css/materialize.min.css" rel="stylesheet">--}}
         <link rel="stylesheet" href="/font-awesome-4.6.3/css_awesome/font-awesome.min.css">
         <link rel="stylesheet" href="/jquery_upload/css/jquery.fileupload.css">
         <link rel="stylesheet" href="/bootstrap-datepicker/css/bootstrap-datepicker3.css">
