@@ -8,7 +8,7 @@ class meuModel extends Model
 {
     protected $fillable = [
         'user_id',
-        'nome',
+//        'nome',
         'email',
         'telefone',
         'cidade',
@@ -19,9 +19,9 @@ class meuModel extends Model
     ];
 
     public static $rules = [
-        'nome' => 'required',
-        'telefone' => 'required',
-        'email' => 'required'
+//        'nome' => 'required',
+//        'telefone' => 'required',
+//        'email' => 'required'
     ];
     
     public function user()

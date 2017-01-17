@@ -56,18 +56,18 @@ class MeuController extends Controller
     {
         $input = $request->all();
 
-        $file = $request->file('documento');
-        $salvar = storage_path().'/documentos/';
-        $nomeFile = $file->getClientOriginalName();
+//        $file = $request->file('documento');
+//        $salvar = storage_path().'/documentos/';
+//        $nomeFile = $file->getClientOriginalName();
 
-        $fileModel = new \App\meuModel();
-
-        $fileModel->documento = $nomeFile;
+//        $fileModel = new \App\meuModel();
+//
+//        $fileModel->documento = $nomeFile;
 
 //        Revertendo o formato do campo data '05/07/1991' para o formato ('Y-mm-dd')=> '1991-07-05';
         $input['dataNascimento'] = implode("-",array_reverse(explode("/", $input['dataNascimento'])));
 
-        $file->move($salvar, $nomeFile);
+//        $file->move($salvar, $nomeFile);
         meuModel::create($input);
 
         $LogUser = new logUser();

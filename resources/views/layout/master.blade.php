@@ -20,13 +20,25 @@
         <link href="/css/modal.css" rel="stylesheet">
         {{--<link href="/css/materialize.min.css" rel="stylesheet">--}}
         <link rel="stylesheet" href="/font-awesome-4.6.3/css_awesome/font-awesome.min.css">
-        <link rel="stylesheet" href="/jquery_upload/css/jquery.fileupload.css">
-        <link rel="stylesheet" href="/bootstrap-datepicker/css/bootstrap-datepicker3.css">
         <link rel="stylesheet" href="/bootstrap-datepicker/css/bootstrap-datepicker.css">
-        <link rel="stylesheet" href="/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css">
+        {{--<link rel="stylesheet" href="/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css">--}}
         <link rel="stylesheet" href="/craftyslide/css/craftyslide.css">
         <!-- Rhinoslider-->
         <link rel="stylesheet" href="/rhinoslider/css/rhinoslider-1.05.css">
+    @show
+
+    @section('script')
+        {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
+        {{--<!--<script>window.jQuery || document.write('<script src="/js/jquery-3.0.0.js"><\/script>')</script>-->--}}
+        <script src="/js/jquery-2.0.0.min.js"></script>
+        <script src="/js/jquery.validate.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <script src="/craftyslide/js/craftyslide.min.js"></script>
+        <!--Rhinoslider-->
+        <script type="text/javascript" src="/rhinoslider/js/rhinoslider-1.05.min.js"></script>
+        <script type="text/javascript" src="/rhinoslider/js/mousewheel.js"></script>
+        <script type="text/javascript" src="/rhinoslider/js/easing.js"></script>
     @show
 </head>
 
@@ -60,7 +72,7 @@
 
                                 <!-- Trigger the modal with a button -->
                                 <a type="button" class="" id="myBtn" data-toggle="modal" data-target="#myModalTeste">Registro</a>
-
+requires
                                 <!-- Modal -->
                                 <div class="modal fade" id="myModalTeste" role="dialog">
                                     <div class="modal-dialog">
@@ -125,18 +137,6 @@
         @yield('container')
 
 </div> <!-- /container -->
-    @section('script')
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        {{--<!--<script>window.jQuery || document.write('<script src="/js/jquery-3.0.0.js"><\/script>')</script>-->--}}
-        <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/jquery-2.0.0.min.js"></script>
-        <script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-        <script src="/craftyslide/js/craftyslide.min.js"></script>
-        <!--Rhinoslider-->
-        <script type="text/javascript" src="/rhinoslider/js/rhinoslider-1.05.min.js"></script>
-        <script type="text/javascript" src="/rhinoslider/js/mousewheel.js"></script>
-        <script type="text/javascript" src="/rhinoslider/js/easing.js"></script>
-    @show
 <hr>
 <footer>
     <p>&copy; 2015 - <?= date('Y') ; ?> by Laravel Technologies Ltd. All rights reserved.</p>

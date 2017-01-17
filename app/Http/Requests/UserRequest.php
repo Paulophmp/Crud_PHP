@@ -24,10 +24,10 @@ class UserRequest extends Request
     public function rules()
     {
         return [
-            'nome'=>'required',
-            'telefone'=>'required',
-            'email'=> 'required',
-            'documento'=>'required'
+//            'nome'=>'required',
+//            'telefone'=>'required',
+//            'email'=> 'required',
+//            'documento'=>'required'
         ];
     }
 }

@@ -1,0 +1,42 @@
+#!/bin/bash
+echo -n 'executar apt-get update e upgrade e git pull? (s/n)'
+read a1
+if test "$a1" = s
+then
+ echo -n 'o diretorio git que deseja realizar o pull é /var/www/project/salic/? (s/n)'
+ read a3
+ if test "$a3" = n
+  then  
+  echo -n 'Insira o caminho desejado:'
+  read path
+  git -C $path pull
+ else
+ git -C /var/www/project/salic/ pull
+ fi
+ apt-get update 
+ apt-get upgrade
+else
+echo -n "OK /n "
+
+fi
+
+echo -n 'Iniciar docker? (s/n)'
+read a2
+if test "$a2" = s
+then 
+docker ps -a
+echo -n 'Insira o ID do container:'
+read container
+service apache2 stop
+docker restart $container
+docker exec -it $container service apache2 start
+fi
+
+
+echo -n 'PHPstorm? (s/n)'
+read answer
+if test "$answer" = s
+ then pstorm&
+else
+   echo 'OK'
+fi

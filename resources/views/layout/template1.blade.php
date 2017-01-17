@@ -16,6 +16,7 @@
     @section('style')
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/style.css" rel="stylesheet">
+        <link href="/media/css/dataTables.bootstrap.css" rel="stylesheet">
         <link href="/css/modal_template1.css" rel="stylesheet">
         <link rel="stylesheet" href="/font-awesome-4.6.3/css_awesome/font-awesome.min.css">
     @show
@@ -61,8 +62,8 @@
 
 </div> <!-- /container -->
 @section('script')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/js/jquery-3.0.0.js"><\/script>')</script>
+    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
+    {{--<script>window.jQuery || document.write('<script src="/js/jquery-3.0.0.js"><\/script>')</script>--}}
     <script src="/js/bootstrap.min.js"></script>
 
     {{--script Datatable--}}
@@ -73,10 +74,11 @@
             $('#datatable').dataTable({
 //                "scrollY":        "200px",
 //                "scrollCollapse": true,
-                "paging":         false,
+                "paging": true,
                 "info": true,
                 "language": {
                     "lengthMenu": "Display _MENU_ records per page",
+                    "sSearch": "Pesquisar: ",
                     "zeroRecords": "<h4 style='color:#FFF; background-color: #00A65A;'>Nenhum dado encontrado !</h4>",
                     "info": "Página _PAGE_ de _PAGES_",
                     "infoEmpty": "Não há registros disponíveis",
