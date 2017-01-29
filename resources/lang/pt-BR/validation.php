@@ -110,13 +110,13 @@ return [
     */
 
     'attributes'           => [
-        'nome' =>'Nome é Obrigatorio',//referente ao name=nome do campo de criacao de usuário
-        'telefone' =>'Telefone é Obrigatorio',//referente ao name=telefone do campo de criacao de usuário
-        'estado' =>'Telefone é Obrigatorio',//referente ao name=telefone do campo de criacao de usuário
-        'name' =>'Nome é Obrigatorio',
-        'email' =>'Email deve conter @intelbras.com.br ',
-        'password' =>'Senha é Obrigatorio',
-        'documento' =>'Documento é Obrigatorio'
+//        'nome' =>'Nome é Obrigatorio',//referente ao name=nome do campo de criacao de usuário
+//        'telefone' =>'Telefone é Obrigatorio',//referente ao name=telefone do campo de criacao de usuário
+//        'estado' =>'Telefone é Obrigatorio',//referente ao name=telefone do campo de criacao de usuário
+//        'name' =>'Nome é Obrigatorio',
+//        'email' =>'Email é Obrigatorio',
+//        'password' =>'Senha é Obrigatorio',
+//        'documento' =>'Documento é Obrigatorio'
     ],
 
 ];

@@ -2,6 +2,7 @@
     @extends('layout.master')
     @section('title', 'Criar Usuário')
     @section('container')
+        <div>
         <h3>Novo Usuário</h3>
 
         <form method="post" action="usuarios/store" name="form" id="form" class="form-horizontal" enctype="multipart/form-data">
@@ -11,11 +12,6 @@
                 <label class="control-label col-sm-2" for="nome">Nome:</label>
                     <div class="col-sm-10">
                         <input type="text" name="nome" id="nome" class="form-control">
-                            {{--@if ($errors->has('nome'))--}}
-                               {{--<span class="help-block">--}}
-                                   {{--<strong>{{ $errors->first('nome') }}</strong>--}}
-                               {{--</span>--}}
-                         {{--@endif--}}
                     </div>
             </div>
             <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">
@@ -58,7 +54,8 @@
             <div class="form-group">
                 <label class="control-label col-sm-2">Estado:</label>
                     <div class="col-sm-10">
-                        <select name="estado" class="btn btn-default">
+                        <select name="estado" class="btn btn-default form-control">
+                            <option disabled selected> -Selecione um Estado- </option>
                             <option value="AC">Acre</option>
                             <option value="AL">Alagoas</option>
                             <option value="AP">Amapá</option>
@@ -92,57 +89,118 @@
                 <button type="submit" class="btn btn-primary" >Cadastra</button>
             </div>
         </form>
-    <script src="/js/mascara-telefone.js"></script>
-    <script>
-        jQuery(function($){
-            $("#phone").mask("(99) 9999-9999");
-        });
-    </script>
-    <script>
-        $('.input-group.date').datepicker({
-            language: 'pt-BR',
-            orientation: 'bottom right',
-            clearBtn: true,
-        });
-    </script>
-    <script type="text/javascript">
-        jQuery(document).ready(function () {
-            $("#form").validate({
-                rules : {
-                    nome:{
-                        required:true,
-                        minlength:3
-                    },
-                     email:{
-                        required:true
+        </div>
+<script src="/js/mascara-telefone.js"></script>
+<script>
+    jQuery(function($){
+        $("#phone").mask("(99) 9999-9999");
+    });
+</script>
+<script>
+    $('.input-group.date').datepicker({
+        language: 'pt-BR',
+        orientation: 'bottom right',
+        clearBtn: true,
+    });
+</script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        $("#form").validate({
+            rules : {
+                nome:{
+                    required:true,
+                    minlength:3
+                },
+                 email:{
+                    required:true
+                },
+                telefone: {
+                    required: true,
+                },
+                dataNascimento: {
+                    required: true,
+                },
+                estado:{
+                    required: true,
+                },
+                cidade:{
+                    required: true,
+                }
+            },
+            messages:{
+                nome:{
+                    required:"Por favor, informe seu nome",
+                    minlength:"O nome deve ter pelo menos 3 caracteres"
+                },
+                email:{
+                    required:"É necessário informar um email"
+                },
+                telefone: {
+                    required: "Infome um Telefone"
+                },
+                dataNascimento: {
+                    required: "Informe a sua data de nascimento "
+                }
+            },
+                highlight: function(element) {
+                    $(element).closest('.form-group').addClass('has-error');
+                },
+                unhighlight: function(element) {
+                    $(element).closest('.form-group').removeClass('has-error');
+                },
+                errorElement: 'span',
+                errorClass: 'help-block',
+                success:function (label) {
+                    label.text("ok").css("color", "green").removeClass("error").addClass("OK!!");
+                },
+                errorPlacement: function(error, element) {
+                    if(element.parent('.input-group').length) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
                     }
                 },
-                messages:{
-                    nome:{
-                        required:"Por favor, informe seu nome",
-                        minlength:"O nome deve ter pelo menos 3 caracteres"
-                    },
-                    email:{
-                        required:"É necessário informar um email"
-                    }
+                submitHandler: function(form){
+                    $.ajax({
+                        type: "Post",
+                        url: 'usuarios/store',
+                        success:
+                            toastr.success('Criado com Sucesso!!'),
+                        data: {
+                                nome:           $('#nome').val(),
+                                telefone:       $('input[telefone]').val(),
+                                dataNascimento: $('input[dataNascimento]'),
+                                email:          $('input[email]').val(),
+                                estado:         $('input[estado]').val(),
+                                cidade:         $('input[cidade]').val(),
+                                endereco:       $('input[endereco]').val(),
+                        },
+                        headers:
+                            {
+                                'X-CSRF-Token': $('input[name="_token"]').val()
+                            }
+                        });
                 },
-                    highlight: function(element) {
-                        $(element).closest('.form-group').addClass('has-error');
-                    },
-                    unhighlight: function(element) {
-                        $(element).closest('.form-group').removeClass('has-error');
-                    },
-                    errorElement: 'span',
-                    errorClass: 'help-block',
-                    errorPlacement: function(error, element) {
-                        if(element.parent('.input-group').length) {
-                            error.insertAfter(element.parent());
-                        } else {
-                            error.insertAfter(element);
-                        }
+                invalidHandler: function (form) {
+                    toastr.options = {
+//                            "closeButton": true, // true/false
+                            "debug": false, // true/false
+                            "newestOnTop": false, // true/false
+                            "progressBar": false, // true/false
+                            "positionClass": "toast-top-right", // toast-top-right / toast-top-left / toast-bottom-right / toast-bottom-left
+                            "onclick": null,
+//                            "showDuration": "8000", // in milliseconds
+//                            "hideDuration": "100", // in milliseconds
+                            "timeOut": "5000", // in milliseconds
+                            "extendedTimeOut": "1000", // in milliseconds
+                            "showEasing": "swing",
+                            "hideEasing": "linear",
+//                            "showMethod": "fadeIn",
+//                            "hideMethod": "fadeOut"
                     }
-            });
+                        toastr.error('Dados Obrigatórios não informado')
+                    },
         });
-    </script>
-
-    @endsection
+    });
+</script>
+@endsection

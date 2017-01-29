@@ -55,7 +55,7 @@ class MeuController extends Controller
     public function store(UserRequest $request)
     {
         $input = $request->all();
-
+//    dd($input);
 //        $file = $request->file('documento');
 //        $salvar = storage_path().'/documentos/';
 //        $nomeFile = $file->getClientOriginalName();
@@ -66,9 +66,11 @@ class MeuController extends Controller
 
 //        Revertendo o formato do campo data '05/07/1991' para o formato ('Y-mm-dd')=> '1991-07-05';
         $input['dataNascimento'] = implode("-",array_reverse(explode("/", $input['dataNascimento'])));
-
+        unset($input['_token']);
+//        dd($input);
 //        $file->move($salvar, $nomeFile);
-        meuModel::create($input);
+//        dd($input);
+        meuModel::insert($input);
 
         $LogUser = new logUser();
         $arrDados = array([

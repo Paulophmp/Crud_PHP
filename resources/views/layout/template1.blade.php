@@ -16,9 +16,16 @@
     @section('style')
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/style.css" rel="stylesheet">
+        <link href="/css/toastr.css" rel="stylesheet">
         <link href="/media/css/dataTables.bootstrap.css" rel="stylesheet">
         <link href="/css/modal_template1.css" rel="stylesheet">
         <link rel="stylesheet" href="/font-awesome-4.6.3/css_awesome/font-awesome.min.css">
+    @show
+    @section('script')
+        <script src="/js/jquery-2.0.0.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/toastr.min.js"></script>
+        <script src="/media/js/dataTables.bootstrap.js"></script>
     @show
 </head>
 
@@ -28,10 +35,6 @@
     <div class="header clearfix">
         <nav class="block">
             <ul class="nav nav-pills pull-right">
-                {{--@if(Auth::user())--}}
-                {{--<li role="presentation" class="active"><a href="/">Home</a></li>--}}
-                {{--@endif--}}
-                {{----}}
                 @if(Auth::user())
                     <li role="presentation" class="active"><a href="/">Home</a></li>
                     <li role="presentation" ><a href="sobre">Sobre</a></li>
@@ -59,35 +62,7 @@
 
     @yield('container')
 
-
 </div> <!-- /container -->
-@section('script')
-    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>--}}
-    {{--<script>window.jQuery || document.write('<script src="/js/jquery-3.0.0.js"><\/script>')</script>--}}
-    <script src="/js/bootstrap.min.js"></script>
-
-    {{--script Datatable--}}
-    <script src="/media/js/jquery.js"></script>
-    <script src="/media/js/jquery.dataTables.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('#datatable').dataTable({
-//                "scrollY":        "200px",
-//                "scrollCollapse": true,
-                "paging": true,
-                "info": true,
-                "language": {
-                    "lengthMenu": "Display _MENU_ records per page",
-                    "sSearch": "Pesquisar: ",
-                    "zeroRecords": "<h4 style='color:#FFF; background-color: #00A65A;'>Nenhum dado encontrado !</h4>",
-                    "info": "Página _PAGE_ de _PAGES_",
-                    "infoEmpty": "Não há registros disponíveis",
-//                    "infoFiltered": "(filtered from _MAX_ total records)"
-                }
-            });
-        });
-    </script>
-@show
 
 </body>
 </body>
