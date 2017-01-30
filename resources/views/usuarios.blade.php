@@ -115,13 +115,7 @@
                 }
             ],
             "language": {
-                "url": "https://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json",
-//                "lengthMenu": "Display _MENU_ records per page",
-//                "sSearch": "Pesquisar: ",
-//                "zeroRecords": "<h4 style='color:#FFF; background-color: #00A65A;'>Nenhum dado encontrado !</h4>",
-//                "info": "Página _PAGE_ de _PAGES_",
-//                "infoEmpty": "Não há registros disponíveis",
-//                    "infoFiltered": "(filtered from _MAX_ total records)"
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
             }
         });
     });
@@ -149,30 +143,16 @@
                         "progressBar": false, // true/false
                         "positionClass": "toast-top-right", // toast-top-right / toast-top-left / toast-bottom-right / toast-bottom-left
                         "preventDuplicates": false,
-                "onclick": null,
-                    "showDuration": "300", // in milliseconds
-                    "hideDuration": "1000", // in milliseconds
-                    "timeOut": "5000", // in milliseconds
-                    "extendedTimeOut": "1000", // in milliseconds
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                },
-                    $('#toastrPwarning').click(function () {
-                        toastr.warning('Alerta')
-                    });
-
-                $('#toastr-warning').click(function () {
-                    toastr.warning('This is a warning notification provided by toastr.')
-                });
-
-                $('#suc').click(function () {
-                    toastr.success(' Apagado com Sucesso.')
-                });
-//                $(document).ready(function () {
-//                    (toastr.success('Deletado com Sucesso!!'));
-//                });
+                        "onclick": null,
+                        "showDuration": "300", // in milliseconds
+                        "hideDuration": "1000", // in milliseconds
+                        "timeOut": "5000", // in milliseconds
+                        "extendedTimeOut": "1000", // in milliseconds
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                }
             });
         </script>
     @endsection
