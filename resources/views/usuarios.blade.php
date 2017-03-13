@@ -38,6 +38,7 @@
                 {{--Fim Form Busca usuário--}}
 
         @if($users->isEmpty())
+            <?php xd($users)?>
             <div class="alert alert-info text-center">Nenhum usuário cadastrado</div>
         @else
             <table  id="datatable" class="table table-bordered table-hover table-condensed table-striped">
