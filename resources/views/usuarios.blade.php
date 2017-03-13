@@ -62,6 +62,7 @@
                 {{--</div>--}}
                 <?php foreach($users as $usuario) { ?>
                     <tr>
+                        <?php xd($usuario)?>
                         <td class="text-center"><?php echo $usuario->id; ?></td>
                         <td class="text-center"><?php echo $usuario->nome ?></td>
                         <td class="align-center"><?php echo $usuario->telefone ?></td>
