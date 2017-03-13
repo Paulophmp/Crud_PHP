@@ -10,12 +10,19 @@
         "Laravelcollective/html": "^5.2",
         "league/flysystem-aws-s3-v3": "~1.0"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/vinnyfs89/xDump"
+        }
+    ],
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~4.0",
         "symfony/css-selector": "2.8.*|3.0.*",
-        "symfony/dom-crawler": "2.8.*|3.0.*"
+        "symfony/dom-crawler": "2.8.*|3.0.*",
+        "vinnyfs89/xDump": "dev-master"
     },
     "autoload": {
         "classmap": [

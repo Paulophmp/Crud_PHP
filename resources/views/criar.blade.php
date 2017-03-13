@@ -14,7 +14,8 @@
                         <input type="text" name="nome" id="nome" class="form-control">
                     </div>
             </div>
-            <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">
+{{--            <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">--}}
+            <div class="form-group">
                 <label class="control-label col-sm-2" for="phone">Telefone:</label>
                 <div class='col-sm-5'>
                     <div class="input-group">
@@ -97,7 +98,7 @@
     });
 </script>
 <script>
-    $('.input-group.date').datepicker({
+    $('#datepicker').datepicker({
         language: 'pt-BR',
         orientation: 'bottom right',
         clearBtn: true,
@@ -133,13 +134,20 @@
                     minlength:"O nome deve ter pelo menos 3 caracteres"
                 },
                 email:{
-                    required:"É necessário informar um email"
+                    required:"É necessário informar um email",
+                    email: "Não contém um endereço de email válido"
                 },
                 telefone: {
                     required: "Infome um Telefone"
                 },
                 dataNascimento: {
                     required: "Informe a sua data de nascimento "
+                },
+                estado:{
+                    required: "Informe seu estado"
+                },
+                cidade: {
+                    required: "Informe uma cidade"
                 }
             },
                 highlight: function(element) {
@@ -151,7 +159,7 @@
                 errorElement: 'span',
                 errorClass: 'help-block',
                 success:function (label) {
-                    label.text("ok").css("color", "green").removeClass("error").addClass("OK!!");
+                    $(label).closest('.form-group').addClass('has-success');
                 },
                 errorPlacement: function(error, element) {
                     if(element.parent('.input-group').length) {

@@ -22,6 +22,7 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        'd0db252abc9f2191ee9f762e067646d4' => __DIR__ . '/..' . '/vinnyfs89/xDump/src/resources/functions/xFunctions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -98,6 +99,8 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         ),
         'C' => 
         array (
+            'Cron\\' => 5,
+            'Component\\xDump\\' => 16,
             'Collective\\Html\\' => 16,
             'ClassPreloader\\' => 15,
             'Carbon\\' => 7,
@@ -252,6 +255,14 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
+        'Cron\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron',
+        ),
+        'Component\\xDump\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vinnyfs89/xDump/src/Component/xDump',
+        ),
         'Collective\\Html\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
@@ -305,13 +316,6 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
             'Doctrine\\Common\\Inflector\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/inflector/lib',
-            ),
-        ),
-        'C' => 
-        array (
-            'Cron' => 
-            array (
-                0 => __DIR__ . '/..' . '/mtdowling/cron-expression/src',
             ),
         ),
     );
@@ -402,10 +406,14 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         'Aws\\AwsClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/AwsClient.php',
         'Aws\\AwsClientInterface' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/AwsClientInterface.php',
         'Aws\\AwsClientTrait' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/AwsClientTrait.php',
+        'Aws\\Batch\\BatchClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Batch/BatchClient.php',
+        'Aws\\Batch\\Exception\\BatchException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Batch/Exception/BatchException.php',
         'Aws\\Budgets\\BudgetsClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Budgets/BudgetsClient.php',
         'Aws\\Budgets\\Exception\\BudgetsException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Budgets/Exception/BudgetsException.php',
         'Aws\\CacheInterface' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/CacheInterface.php',
         'Aws\\ClientResolver' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ClientResolver.php',
+        'Aws\\CloudDirectory\\CloudDirectoryClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/CloudDirectory/CloudDirectoryClient.php',
+        'Aws\\CloudDirectory\\Exception\\CloudDirectoryException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/CloudDirectory/Exception/CloudDirectoryException.php',
         'Aws\\CloudFormation\\CloudFormationClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/CloudFormation/CloudFormationClient.php',
         'Aws\\CloudFormation\\Exception\\CloudFormationException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/CloudFormation/Exception/CloudFormationException.php',
         'Aws\\CloudFront\\CloudFrontClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/CloudFront/CloudFrontClient.php',
@@ -450,6 +458,9 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         'Aws\\CommandPool' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/CommandPool.php',
         'Aws\\ConfigService\\ConfigServiceClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ConfigService/ConfigServiceClient.php',
         'Aws\\ConfigService\\Exception\\ConfigServiceException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/ConfigService/Exception/ConfigServiceException.php',
+        'Aws\\CostandUsageReportService\\CostandUsageReportServiceClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/CostandUsageReportService/CostandUsageReportServiceClient.php',
+        'Aws\\CostandUsageReportService\\Exception\\CostandUsageReportServiceException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/CostandUsageReportService/Exception/CostandUsageReportServiceException.php',
+        'Aws\\Credentials\\AssumeRoleCredentialProvider' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Credentials/AssumeRoleCredentialProvider.php',
         'Aws\\Credentials\\CredentialProvider' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Credentials/CredentialProvider.php',
         'Aws\\Credentials\\Credentials' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Credentials/Credentials.php',
         'Aws\\Credentials\\CredentialsInterface' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Credentials/CredentialsInterface.php',
@@ -479,7 +490,6 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         'Aws\\DynamoDb\\SetValue' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/DynamoDb/SetValue.php',
         'Aws\\DynamoDb\\StandardSessionConnection' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/DynamoDb/StandardSessionConnection.php',
         'Aws\\DynamoDb\\WriteRequestBatch' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/DynamoDb/WriteRequestBatch.php',
-        'Aws\\Ec2\\CopySnapshotMiddleware' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Ec2/CopySnapshotMiddleware.php',
         'Aws\\Ec2\\Ec2Client' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Ec2/Ec2Client.php',
         'Aws\\Ec2\\Exception\\Ec2Exception' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Ec2/Exception/Ec2Exception.php',
         'Aws\\Ecr\\EcrClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Ecr/EcrClient.php',
@@ -577,6 +587,7 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         'Aws\\Pinpoint\\PinpointClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Pinpoint/PinpointClient.php',
         'Aws\\Polly\\Exception\\PollyException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Polly/Exception/PollyException.php',
         'Aws\\Polly\\PollyClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Polly/PollyClient.php',
+        'Aws\\PresignUrlMiddleware' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/PresignUrlMiddleware.php',
         'Aws\\PsrCacheAdapter' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/PsrCacheAdapter.php',
         'Aws\\Rds\\Exception\\RdsException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Rds/Exception/RdsException.php',
         'Aws\\Rds\\RdsClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Rds/RdsClient.php',
@@ -653,6 +664,8 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         'Aws\\Swf\\Exception\\SwfException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Swf/Exception/SwfException.php',
         'Aws\\Swf\\SwfClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Swf/SwfClient.php',
         'Aws\\TraceMiddleware' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/TraceMiddleware.php',
+        'Aws\\WafRegional\\Exception\\WafRegionalException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/WafRegional/Exception/WafRegionalException.php',
+        'Aws\\WafRegional\\WafRegionalClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/WafRegional/WafRegionalClient.php',
         'Aws\\Waf\\Exception\\WafException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Waf/Exception/WafException.php',
         'Aws\\Waf\\WafClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Waf/WafClient.php',
         'Aws\\Waiter' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Waiter.php',
@@ -663,6 +676,7 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         'Aws\\XRay\\XRayClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/XRay/XRayClient.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
+        'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'ClassPreloader\\ClassList' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassList.php',
         'ClassPreloader\\ClassLoader' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassLoader.php',
         'ClassPreloader\\ClassNode' => __DIR__ . '/..' . '/classpreloader/classpreloader/src/ClassNode.php',
@@ -685,6 +699,7 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
         'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
+        'Component\\xDump\\XDump' => __DIR__ . '/..' . '/vinnyfs89/xDump/src/Component/xDump/XDump.php',
         'CreateLogUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_08_162234_create_log_users_table.php',
         'CreateMeuModelsTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_21_205203_create_meu_models_table.php',
         'CreateModelContadosTable' => __DIR__ . '/../..' . '/database/migrations/2016_05_24_181545_create_model_contados_table.php',
@@ -1997,9 +2012,6 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         'Monolog\\Handler\\RotatingFileHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/RotatingFileHandler.php',
         'Monolog\\Handler\\SamplingHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/SamplingHandler.php',
         'Monolog\\Handler\\SlackHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/SlackHandler.php',
-        'Monolog\\Handler\\SlackWebhookHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/SlackWebhookHandler.php',
-        'Monolog\\Handler\\Slack\\SlackRecord' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/Slack/SlackRecord.php',
-        'Monolog\\Handler\\SlackbotHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/SlackbotHandler.php',
         'Monolog\\Handler\\SocketHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/SocketHandler.php',
         'Monolog\\Handler\\StreamHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/StreamHandler.php',
         'Monolog\\Handler\\SwiftMailerHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Handler/SwiftMailerHandler.php',
@@ -2015,7 +2027,6 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         'Monolog\\Processor\\MemoryPeakUsageProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/MemoryPeakUsageProcessor.php',
         'Monolog\\Processor\\MemoryProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/MemoryProcessor.php',
         'Monolog\\Processor\\MemoryUsageProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/MemoryUsageProcessor.php',
-        'Monolog\\Processor\\MercurialProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/MercurialProcessor.php',
         'Monolog\\Processor\\ProcessIdProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/ProcessIdProcessor.php',
         'Monolog\\Processor\\PsrLogMessageProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/PsrLogMessageProcessor.php',
         'Monolog\\Processor\\TagProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/TagProcessor.php',
@@ -2870,6 +2881,7 @@ class ComposerStaticInitc0d8c7391039db65a092d838c701e6fe
         'SuperClosure\\Analyzer\\Visitor\\MagicConstantVisitor' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Analyzer/Visitor/MagicConstantVisitor.php',
         'SuperClosure\\Analyzer\\Visitor\\ThisDetectorVisitor' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Analyzer/Visitor/ThisDetectorVisitor.php',
         'SuperClosure\\Exception\\ClosureAnalysisException' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Exception/ClosureAnalysisException.php',
+        'SuperClosure\\Exception\\ClosureSerializationException' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Exception/ClosureSerializationException.php',
         'SuperClosure\\Exception\\ClosureUnserializationException' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Exception/ClosureUnserializationException.php',
         'SuperClosure\\Exception\\SuperClosureException' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/Exception/SuperClosureException.php',
         'SuperClosure\\SerializableClosure' => __DIR__ . '/..' . '/jeremeamia/SuperClosure/src/SerializableClosure.php',

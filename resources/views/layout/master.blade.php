@@ -39,6 +39,11 @@
         <script type="text/javascript" src="/rhinoslider/js/mousewheel.js"></script>
         <script type="text/javascript" src="/rhinoslider/js/easing.js"></script>
         <script src="/js/toastr.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();
+            });
+        </script>
     @show
 </head>
 
@@ -63,8 +68,15 @@
                 {{--<ul class="nav navbar-nav navbar-right">--}}
                     <li>
                         @if(Auth::check())
-                            <p>{{Auth::user()->name}} <a href="{{url('auth/logout')}}">Sair</a></p>
-                            {{--<li><a href="{{url('auth/logout')}}">Sair</a></li>--}}
+{{--                            <p>{{Auth::user()->name}} <a href="{{url('auth/logout')}}">Sair</a></p>--}}
+                            {{--<a href="{{url('auth/logout')}}"  data-toggle="modal" data-target=".bs-example-modal-sm"  >--}}
+                                {{--<span class="glyphicon glyphicon-off red"></span>--}}
+                            {{--</a>--}}
+                            <a href="#"  data-toggle="modal" data-target=".bs-example-modal-sm">
+                                <span class="glyphicon glyphicon-off red" data-toggle="tooltip" title="Sair do Sistema" data-placement="bottom"></span>
+                            </a>
+
+                {{--<li><a href="{{url('auth/logout')}}">Sair</a></li>--}}
                         @else
                             <li>
                                 {{--este que eu uso atualmente--}}
@@ -128,6 +140,42 @@
                     </li>
                  {{--</ul>--}}
             </ul>
+
+            <!-- Small modal -->
+
+            {{--<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">--}}
+                {{--<div class="modal-dialog modal-sm" role="document">--}}
+                    {{--<div class="modal-content">--}}
+
+                        {{--<div class="modal-footer">--}}
+                            {{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
+                            {{--<button type="button" class="btn btn-primary">Save changes</button>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+
+            {{--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">--}}
+                {{--Launch demo modal--}}
+            {{--</button>--}}
+
+            <!-- Modal -->
+            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title" id="exampleModalLabel">Acesso ao sistema !</h6>
+                        </div>
+                        <div class="modal-body">
+                            <p>Deseja realmente sair do Sistema??</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{url('auth/logout')}}" type="button" class="btn btn-primary">Sim</a>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </nav>
         <h3 class="text-muted">Project name</h3>

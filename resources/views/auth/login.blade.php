@@ -128,7 +128,7 @@
                     $("#loading").html(data);
                 }
             });
-            $("#loading").html("<br><br> Carregando dados.....<br><img src='/img/ajax.gif'> <br><br>");
+            $("#loading").html("<br><br> Carregando dados...<br><img src='/img/ajax.gif'> <br><br>").css({'color': 'Blue'},{'font-size':'35px'});
         })
     });
 </script>
