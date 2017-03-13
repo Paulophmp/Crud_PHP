@@ -38,7 +38,6 @@
                 {{--Fim Form Busca usuário--}}
 
         @if($users->isEmpty())
-            <?php xd($users)?>
             <div class="alert alert-info text-center">Nenhum usuário cadastrado</div>
         @else
             <table  id="datatable" class="table table-bordered table-hover table-condensed table-striped">
@@ -62,7 +61,6 @@
                 {{--</div>--}}
                 <?php foreach($users as $usuario) { ?>
                     <tr>
-                        <?php xd($usuario)?>
                         <td class="text-center"><?php echo $usuario->id; ?></td>
                         <td class="text-center"><?php echo $usuario->nome ?></td>
                         <td class="align-center"><?php echo $usuario->telefone ?></td>
