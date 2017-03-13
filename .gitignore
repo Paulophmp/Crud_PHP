@@ -4,4 +4,8 @@
 Homestead.yaml
 Homestead.json
 .env
+.idea
+.artisan
 .idea/inspectionProfiles/
+.idea/php.xml
+composer_2.phar
