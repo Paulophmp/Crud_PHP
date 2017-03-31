@@ -43,7 +43,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email">Email:</label>
                 <div class="col-sm-10">
-                    <input type="email" name="email" class="form-control">
+                    <input type="email" name="email" id="email" class="form-control">
                     {{--@if ($errors->has('email'))--}}
                         {{--<span class="help-block">--}}
                                    {{--<strong>{{ $errors->first('email') }}</strong>--}}
@@ -54,7 +54,7 @@
 
             <div class="form-group">
                 <label class="control-label col-sm-2">Estado:</label>
-                    <div class="col-sm-10">
+                    <div class="col-sm-5">
                         <select name="estado" class="btn btn-default form-control">
                             <option disabled selected> -Selecione um Estado- </option>
                             <option value="AC">Acre</option>

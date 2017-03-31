@@ -5,7 +5,7 @@
 
         <h3>Entre em Contato com Nois</h3>
 
-            <form action="{{url('contato/store')}}" method="POST"  enctype="multpart/form-data" class="form-horizontal">
+            <form action="{{url('contato/store')}}" method="POST" class="form-horizontal">
                 {!! csrf_field() !!}
 
                 <div class="form-group">
@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <label class="control-label col-sm-3">Descricao:</label>
                         <div class="col-sm-8">
-                    <textarea type="text" name="descricao" rows="5" class="form-control"></textarea>
+                    <textarea name="descricao" rows="5" class="form-control"></textarea>
                     </div>
                 </div>
 

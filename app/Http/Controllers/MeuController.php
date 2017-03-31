@@ -28,7 +28,7 @@ class MeuController extends Controller
 //		$user = $mod->all()->orderBy('nome', 'ASC')->get();
 //		$user = $mod->where('user_id', auth()->user()->id)->get();
 //        $user = $mod->all();
-       $user = $mod::paginate(15);
+       $user = $mod::paginate(10);
         return view('usuarios',['users'=>$user]);
     }
 

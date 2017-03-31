@@ -164,13 +164,13 @@
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title" id="exampleModalLabel">Acesso ao sistema !</h6>
+                            <h6 class="modal-title" id="mySmallModalLabel">Acesso ao sistema !</h6>
                         </div>
                         <div class="modal-body">
                             <p>Deseja realmente sair do Sistema??</p>
                         </div>
                         <div class="modal-footer">
-                            <a href="{{url('auth/logout')}}" type="button" class="btn btn-primary">Sim</a>
+                            <a href="{{url('auth/logout')}}"  class="btn btn-primary">Sim</a>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
                         </div>
                     </div>

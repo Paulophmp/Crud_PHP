@@ -63,7 +63,5 @@
     @yield('container')
 
 </div> <!-- /container -->
-
-</body>
 </body>
 </html>

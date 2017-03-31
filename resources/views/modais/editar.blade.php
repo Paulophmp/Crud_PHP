@@ -3,7 +3,7 @@
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
-            <div class="modal-header" style="padding:35px 50px;">
+            <div class="modal-header" style="padding:15px 20px;">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4>Formulário de Atualização</h4>
             </div>
@@ -28,7 +28,6 @@
                         <span class="glyphicon glyphicon-earphone form-control-feedback"></span>
                     </div>
 
-
                     <div class="form-group has-feedback">
                         <label for="mail"> Email</label>
                         <input type="text" class="form-control" value="{{$usuario->email}}" id="mail" name="email">
@@ -52,8 +51,10 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancelar</button>
-                <a href="{{url("usuarios/atualizar/$usuario->id")}}" type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-off"></span> Salvar Mudanças</a>
+                <a type="submit" class="btn btn-danger btn-default" data-dismiss="modal">
+                     Cancelar <span class="glyphicon glyphicon-remove"></span></a>
+                <a href="{{url("usuarios/atualizar/$usuario->id")}}" type="submit" class="btn btn-primary">
+                    Salvar Mudanças <span class="glyphicon glyphicon-send"></span> </a>
             </div>
         </div>
     </div>

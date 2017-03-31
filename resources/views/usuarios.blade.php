@@ -18,8 +18,8 @@
             <div class="row" id="teste">
                 <div class="alert alert-danger alert-dismissable fa in text-center col-md-6 col-md-offset-3">
                     <button href="#" class="close" data-dismiss="alert" id="close">&times;</button>
-                    <h4><i class="icon fa fa-check">Alerta!</i></h4>
-                    <strong>{{session('status1')}}</strong>...
+                    <h5><i class="icon fa fa-check"> {{session('status1')}}...</i></h5>
+
                 </div>
             </div>
         @endif
@@ -63,7 +63,7 @@
                     <tr>
                         <td class="text-center"><?php echo $usuario->id; ?></td>
                         <td class="text-center"><?php echo $usuario->nome ?></td>
-                        <td class="align-center"><?php echo $usuario->telefone ?></td>
+                        <td class="text-center"><?php echo $usuario->telefone ?></td>
                         <td class="text-center"><?php echo $usuario->email ?></td>
                         <td class="text-center"><?php echo $usuario->estado ?></td>
                         <td class="text-center"><p class="autor"><?php echo $usuario->user->name ?></p></td>
@@ -81,10 +81,9 @@
                         </td>
                     </tr>
                 <?php }?>
-
                 </tbody>
-
              </table>
+
             {!! $users->render() !!}
 
             {{--<div class="form-group">--}}
@@ -98,6 +97,15 @@
                     {{--<input class="form-control" type="" placeholder="Password">--}}
                 {{--</div>--}}
             {{--</div>--}}
+
+            <div style='float:right;'>
+                <p class="top" title="ir para o topo">
+                    <img src='img/seta3.gif' width="70" height="45" style='display:scroll; position: absolute; right:5px; ' title='Voltar ao Topo da Página'/>
+                </p>
+                {{--<a href='#'>--}}
+                {{--<img src='img/seta3.gif' width="70" height="45" style='display:scroll; position:fixed; bottom:5px; right:5px;' title='Voltar ao Topo da Página'/>2--}}
+                </a>
+            </div>
         @endif
 
 {{--script Datatable--}}
@@ -153,6 +161,13 @@
                         "showMethod": "fadeIn",
                         "hideMethod": "fadeOut"
                 }
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('.top').click(function(){
+                    $('html,body').animate({scrollTop: 0},'slow');
+                });
             });
         </script>
     @endsection
