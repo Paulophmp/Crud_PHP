@@ -51,40 +51,76 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label class="control-label col-sm-2">Estado:</label>
-                    <div class="col-sm-5">
-                        <select name="estado" class="btn btn-default form-control">
-                            <option disabled selected> -Selecione um Estado- </option>
-                            <option value="AC">Acre</option>
-                            <option value="AL">Alagoas</option>
-                            <option value="AP">Amapá</option>
-                            <option value="AM">Amazonas</option>
-                            <option value="BA">Bahia</option>
-                            <option value="DF">Distrito Federal</option>
-                            <option value="ES">Espírito Santo</option>
-                            <option value="GO">Goiás</option>
-                            <option value="MA">Maranhão</option>
-                            <option value="MT">Mato Grosso</option>
-                            <option value="MS">Mato Grosso do Sul</option>
-                        </select>
-                    </div>
-            </div>
+            {{--<div class="form-group">--}}
+                {{--<label class="control-label col-sm-2">Estado:</label>--}}
+                    {{--<div class="col-sm-5">--}}
+                        {{--<select name="estado" class="btn btn-default form-control">--}}
+                            {{--<option disabled selected> -Selecione um Estado- </option>--}}
+                            {{--<option value="AC">Acre</option>--}}
+                            {{--<option value="AL">Alagoas</option>--}}
+                            {{--<option value="AP">Amapá</option>--}}
+                            {{--<option value="AM">Amazonas</option>--}}
+                            {{--<option value="BA">Bahia</option>--}}
+                            {{--<option value="DF">Distrito Federal</option>--}}
+                            {{--<option value="ES">Espírito Santo</option>--}}
+                            {{--<option value="GO">Goiás</option>--}}
+                            {{--<option value="MA">Maranhão</option>--}}
+                            {{--<option value="MT">Mato Grosso</option>--}}
+                            {{--<option value="MS">Mato Grosso do Sul</option>--}}
+                        {{--</select>--}}
+                    {{--</div>--}}
+            {{--</div>--}}
 
             <div class="form-group">
-                <label class="control-label col-sm-2">Cidade:</label>
-                <div class="col-sm-10">
-                    <input type="text" name="cidade" class="form-control">
+                <label class="col-md-2 control-label" for="cep">CEP:</label>
+                <div class="col-md-4">
+                    <input id="cep" name="cep" class="form-control input-md" type="text">
                 </div>
             </div>
 
-            <div class="
-            form-group">
-                <label class="control-label col-sm-2">Endereço:</label>
-                <div class="col-sm-10">
-                    <input type="text" name="endereco" class="form-control">
+            <div class="form-group aparecer" style="display: none;">
+                <label class="col-md-4 control-label" for="">Rua:</label>
+                <div class="col-md-4">
+                    <input id="street" name="street" class="form-control input-md" type="text" disabled>
                 </div>
             </div>
+
+            <div class="form-group aparecer" style="display: none;">
+                <label class="col-md-4 control-label" for="">Bairro: </label>
+                <div class="col-md-4">
+                    <input id="neighborhood" name="neighborhood" disabled class="form-control input-md" type="text">
+                </div>
+            </div>
+
+
+            <div class="form-group aparecer" style="display: none;">
+                <label class="col-md-4 control-label" for="cidade">Cidade</label>
+                <div class="col-md-4">
+                    <input id="cidade" name="cidade" class="form-control input-md" disabled type="text">
+                </div>
+            </div>
+
+            <div class="form-group aparecer" style="display: none;">
+                <label class="col-md-4 control-label" for="uf">Estado:</label>
+                <div class="col-md-2">
+                    <input id="uf" name="uf" class="form-control input-md" disabled type="text">
+                </div>
+            </div>
+
+            {{--<div class="form-group">--}}
+                {{--<label class="control-label col-sm-2">Cidade:</label>--}}
+                {{--<div class="col-sm-10">--}}
+                    {{--<input type="text" name="cidade" class="form-control">--}}
+                {{--</div>--}}
+            {{--</div>--}}
+
+            {{--<div class="--}}
+            {{--form-group">--}}
+                {{--<label class="control-label col-sm-2">Endereço:</label>--}}
+                {{--<div class="col-sm-10">--}}
+                    {{--<input type="text" name="endereco" class="form-control">--}}
+                {{--</div>--}}
+            {{--</div>--}}
             <div class="text-center">
                 <button type="submit" class="btn btn-primary" >Cadastra</button>
             </div>
@@ -210,4 +246,46 @@
         });
     });
 </script>
+        <script>
+            $(document).ready(function() {
+                function limpa_form_cep() {
+                    // Limpa valores do formulário de cep.
+                    $('input[name="street"]').val("");
+                    $('input[name="neighborhood"]').val("");
+                    $('input[name="cidade"]').val("");
+                    $('input[name="uf"]').val("");
+                }
+                $('#cep').blur(function (e) {
+
+                    var cep = $('input[name="cep"]').val() || ''
+
+                    if (!cep){
+                        return
+                    }
+                    var url = 'http://viacep.com.br/ws/' + cep + '/json'
+                    $.getJSON(url,function (data) {
+                        if (!("erro" in data)) {
+                            //Atualiza os campos com os valores da consulta.
+                            $('input[name="street"]').val(data.logradouro)
+                            $('input[name="neighborhood"]').val(data.bairro)
+                            $('input[name="cidade"]').val(data.localidade)
+                            $('input[name="uf"]').val(data.uf)
+                        }
+                        else {
+                            //CEP pesquisado não foi encontrado.
+                            limpa_form_cep();
+                            alert("CEP não encontrado.");
+                        }
+                    });
+                })
+            });
+        </script>
+        <script>
+            $(document).ready(function () {
+                $('#cep').mask('99999-999');
+                $("#cep").blur(function() {
+                    $('.aparecer').show();
+                });
+            });
+        </script>
 @endsection
