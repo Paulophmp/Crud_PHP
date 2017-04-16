@@ -11,7 +11,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="nome">Nome:</label>
                     <div class="col-sm-10">
-                        <input type="text" name="nome" id="nome" class="form-control">
+                        <input type="text" name="nome" autofocus id="nome" class="form-control">
                     </div>
             </div>
 {{--            <div class="form-group{{ $errors->has('telefone') ? ' has-error' : '' }}">--}}
@@ -21,9 +21,8 @@
                     <div class="input-group">
                         <input type='text' id="phone" name="telefone" class="form-control" />
                         <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-earphone"></span>
-                             </span>
-
+                            <span class="glyphicon glyphicon-earphone"></span>
+                        </span>
                     </div>
                 </div>
             </div>
@@ -206,7 +205,7 @@
 //                            "showMethod": "fadeIn",
 //                            "hideMethod": "fadeOut"
                     }
-                        toastr.error('Dados Obrigatórios não informado')
+                        toastr.error('Dados Obrigatórios não informado!!')
                     },
         });
     });
