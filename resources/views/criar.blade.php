@@ -81,14 +81,14 @@
             <div class="form-group aparecer" style="display: none;">
                 <label class="col-md-4 control-label" for="">Rua:</label>
                 <div class="col-md-4">
-                    <input id="street" name="street" class="form-control input-md" type="text" disabled>
+                    <input id="street" name="street" class="form-control input-md" type="text">
                 </div>
             </div>
 
             <div class="form-group aparecer" style="display: none;">
                 <label class="col-md-4 control-label" for="">Bairro: </label>
                 <div class="col-md-4">
-                    <input id="neighborhood" name="neighborhood" disabled class="form-control input-md" type="text">
+                    <input id="bairro" name="bairro" class="form-control input-md" type="text">
                 </div>
             </div>
 
@@ -96,14 +96,14 @@
             <div class="form-group aparecer" style="display: none;">
                 <label class="col-md-4 control-label" for="cidade">Cidade</label>
                 <div class="col-md-4">
-                    <input id="cidade" name="cidade" class="form-control input-md" disabled type="text">
+                    <input id="cidade" name="cidade" class="form-control input-md" type="text">
                 </div>
             </div>
 
             <div class="form-group aparecer" style="display: none;">
                 <label class="col-md-4 control-label" for="uf">Estado:</label>
                 <div class="col-md-2">
-                    <input id="uf" name="uf" class="form-control input-md" disabled type="text">
+                    <input id="uf" name="uf" class="form-control input-md" type="text">
                 </div>
             </div>
 
@@ -246,46 +246,46 @@
         });
     });
 </script>
-        <script>
-            $(document).ready(function() {
-                function limpa_form_cep() {
-                    // Limpa valores do formulário de cep.
-                    $('input[name="street"]').val("");
-                    $('input[name="neighborhood"]').val("");
-                    $('input[name="cidade"]').val("");
-                    $('input[name="uf"]').val("");
+<script>
+    $(document).ready(function() {
+        function limpa_form_cep() {
+            // Limpa valores do formulário de cep.
+            $('input[name="street"]').val("");
+            $('input[name="neighborhood"]').val("");
+            $('input[name="cidade"]').val("");
+            $('input[name="uf"]').val("");
+        }
+        $('#cep').blur(function (e) {
+
+            var cep = $('input[name="cep"]').val() || ''
+
+            if (!cep){
+                return
+            }
+            var url = 'http://viacep.com.br/ws/' + cep + '/json'
+            $.getJSON(url,function (data) {
+                if (!("erro" in data)) {
+                    //Atualiza os campos com os valores da consulta.
+                    $('input[name="street"]').val(data.logradouro)
+                    $('input[name="bairro"]').val(data.bairro)
+                    $('input[name="cidade"]').val(data.localidade)
+                    $('input[name="uf"]').val(data.uf)
                 }
-                $('#cep').blur(function (e) {
-
-                    var cep = $('input[name="cep"]').val() || ''
-
-                    if (!cep){
-                        return
-                    }
-                    var url = 'http://viacep.com.br/ws/' + cep + '/json'
-                    $.getJSON(url,function (data) {
-                        if (!("erro" in data)) {
-                            //Atualiza os campos com os valores da consulta.
-                            $('input[name="street"]').val(data.logradouro)
-                            $('input[name="neighborhood"]').val(data.bairro)
-                            $('input[name="cidade"]').val(data.localidade)
-                            $('input[name="uf"]').val(data.uf)
-                        }
-                        else {
-                            //CEP pesquisado não foi encontrado.
-                            limpa_form_cep();
-                            alert("CEP não encontrado.");
-                        }
-                    });
-                })
+                else {
+                    //CEP pesquisado não foi encontrado.
+                    limpa_form_cep();
+                    alert("CEP não encontrado.");
+                }
             });
-        </script>
-        <script>
-            $(document).ready(function () {
-                $('#cep').mask('99999-999');
-                $("#cep").blur(function() {
-                    $('.aparecer').show();
-                });
-            });
-        </script>
+        })
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#cep').mask('99999-999');
+        $("#cep").blur(function() {
+            $('.aparecer').show();
+        });
+    });
+</script>
 @endsection

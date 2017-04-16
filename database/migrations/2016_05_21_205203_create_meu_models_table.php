@@ -20,10 +20,12 @@ class CreateMeuModelsTable extends Migration
             $table->string('telefone', 255);
             $table->date('dataNascimento');
             $table->string('email', 255);
-            $table->string('estado', 20);
+            $table->string('cep', 20);
+            $table->string('street', 60);
+            $table->string('bairro', 60);
             $table->string('cidade', 60);
             $table->string('documento',255);
-            $table->string('endereco', 60);
+            $table->string('uf', 60);
             $table->timestamps();
         });
     }

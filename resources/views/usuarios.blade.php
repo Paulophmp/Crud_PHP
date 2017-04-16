@@ -65,7 +65,7 @@
                         <td class="text-center"><?php echo $usuario->nome ?></td>
                         <td class="text-center"><?php echo $usuario->telefone ?></td>
                         <td class="text-center"><?php echo $usuario->email ?></td>
-                        <td class="text-center"><?php echo $usuario->estado ?></td>
+                        <td class="text-center"><?php echo $usuario->uf ?></td>
                         <td class="text-center"><p class="autor"><?php echo $usuario->user->name ?></p></td>
                         <td class="text-center">
                             <a href="{{url('contato/user',['id'=>$usuario->id])}}" class="btn btn-success editable-table-button btn-xs">Visualizar</a>
