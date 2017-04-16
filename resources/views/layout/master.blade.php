@@ -32,7 +32,7 @@
         <script src="/js/jquery-2.0.0.min.js"></script>
         <script src="/js/jquery.validate.js"></script>
         <script src="/js/bootstrap.min.js"></script>
-        <script src="/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <script src="/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
         <script src="/craftyslide/js/craftyslide.min.js"></script>
         <!--Rhinoslider-->
         <script type="text/javascript" src="/rhinoslider/js/rhinoslider-1.05.min.js"></script>

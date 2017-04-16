@@ -29,12 +29,12 @@
 
             <div class="form-group">
                 <label class="control-label col-sm-2" for="datepicker">Data Nascimento:</label>
-                    <div class='col-sm-5'>
-                        <div class="input-group date"  data-date-format="dd/mm/yyyy">
-                            <input type='text' id="datepicker" name="dataNascimento" class="form-control" />
-                             <span class="input-group-addon">
-                                <span class="glyphicon glyphicon-calendar"></span>
-                             </span>
+                <div class='col-sm-5'>
+                    <div class="input-group date">
+                        <input type='text' id="datepicker" name="dataNascimento" class="form-control" />
+                         <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                         </span>
                     </div>
                 </div>
             </div>
@@ -134,9 +134,9 @@
 </script>
 <script>
     $('#datepicker').datepicker({
+        format: 'dd/mm/yyyy',
         language: 'pt-BR',
-        orientation: 'bottom right',
-        clearBtn: true,
+
     });
 </script>
 <script type="text/javascript">
