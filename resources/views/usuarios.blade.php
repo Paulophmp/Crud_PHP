@@ -113,8 +113,6 @@
 <script>
     $(document).ready(function () {
         $('#datatable').DataTable({
-//                "scrollY":        "200px",
-//                "scrollCollapse": true,
             "paging": true,
             "info": true,
             "aoColumnDefs":[
@@ -131,8 +129,8 @@
 <script type="text/javascript">
     $(document).ready(function() {
         setTimeout(function () {
-            $('#close').trigger('click');
-        }, 1500);
+            $('.alert').slideUp('slow');
+        }, 3000);
 
         $('h2').animate({
             "margin-left": "+=480",
