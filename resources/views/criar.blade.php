@@ -74,7 +74,12 @@
             <div class="form-group">
                 <label class="col-md-2 control-label" for="cep">CEP:</label>
                 <div class="col-md-4">
-                    <input id="cep" name="cep" class="form-control input-md" type="text">
+                    <div class="input-group">
+                        <input id="cep" name="cep" class="form-control input-md" type="text">
+                        <span class="input-group-addon">
+                            <span class="fa fa-truck"></span>
+                        </span>
+                    </div>
                 </div>
             </div>
 

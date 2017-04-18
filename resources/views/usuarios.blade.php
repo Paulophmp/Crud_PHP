@@ -98,14 +98,11 @@
                 {{--</div>--}}
             {{--</div>--}}
 
-            <div style='float:right;'>
-                <p class="top" title="ir para o topo">
-                    <img src='img/seta3.gif' width="70" height="45" style='display:scroll; position: absolute; right:5px; ' title='Voltar ao Topo da Página'/>
-                </p>
-                {{--<a href='#'>--}}
-                {{--<img src='img/seta3.gif' width="70" height="45" style='display:scroll; position:fixed; bottom:5px; right:5px;' title='Voltar ao Topo da Página'/>2--}}
-                </a>
-            </div>
+                <div style='float:right;'>
+                    <p class="top" style='text-align: center;' data-toggle="tooltip" data-html="true" title="<em>ir para o topo</em>">
+                        <a href="#" class="btn btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span></a>
+                    </p>
+                </div>
         @endif
 
 {{--script Datatable--}}
@@ -129,8 +126,8 @@
 <script type="text/javascript">
     $(document).ready(function() {
         setTimeout(function () {
-            $('.alert').slideUp('slow');
-        }, 3000);
+            $('.alert').slideUp('close');
+        }, 5000);
 
         $('h2').animate({
             "margin-left": "+=480",
@@ -161,11 +158,17 @@
                 }
             });
         </script>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('.top').click(function(){
-                    $('html,body').animate({scrollTop: 0},'slow');
-                });
-            });
-        </script>
+<script>
+    $(window).scroll(function(){
+        if ($(this).scrollTop() > 100) {
+            $('.top').fadeIn();
+        } else {
+            $('.top').fadeOut();
+        }
+    });
+    $('.top').click(function(){
+        $('html, body').animate({scrollTop : 0},500);
+        return false;
+        });
+</script>
     @endsection

@@ -51,21 +51,16 @@ class MeuController extends Controller
         return view('criar');
     }
 
-//    aqui estou usando o FormRequest mais posso tambem usar o metodo "rules" na minha model
     public function store(UserRequest $request)
     {
         $input = $request->all();
 //    dd($input);
-//        $file = $request->file('documento');
-//        $salvar = storage_path().'/documentos/';
-//        $nomeFile = $file->getClientOriginalName();
 
-//        $fileModel = new \App\meuModel();
-//
-//        $fileModel->documento = $nomeFile;
-
-//        Revertendo o formato do campo data '05/07/1991' para o formato ('Y-mm-dd')=> '1991-07-05';
+        /*Revertendo o formato do campo data '05/07/1991' para o formato ('Y-mm-dd')=> '1991-07-05';*/
         $input['dataNascimento'] = implode("-",array_reverse(explode("/", $input['dataNascimento'])));
+        $input['telefone'] = $this->clearDados($request['telefone']);
+        $input['cep']      = $this->clearDados($input['cep']);
+
         unset($input['_token']);
 //        dd($input);
 //        $file->move($salvar, $nomeFile);
@@ -148,5 +143,14 @@ class MeuController extends Controller
             ->get();
 
         return view('search', compact('nome'));
+    }
+
+    public function clearDados($arrdados)
+    {
+        if(strlen($arrdados)){
+            /*str_replace = subs tds ocorrências da string de procura com a string de subsituição*/
+            $arrdados = str_replace(array('-', '.','(',')'),'',$arrdados);
+            return $arrdados;
+        }
     }
 }
