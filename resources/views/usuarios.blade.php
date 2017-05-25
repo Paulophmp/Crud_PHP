@@ -4,6 +4,18 @@
     @section('container')
 
         <h2>Usuários</h2>
+        <style>
+            .top{
+                display: none;
+                position: fixed;
+                right: 20px;
+                bottom: 80px;
+                height: 42px;
+                width: 42px;
+                z-index: 9999;
+                line-height: 3em;
+            }
+        </style>
 
         {{--@if(session('status'))--}}
             {{--<div class="row" id="teste">--}}
@@ -99,13 +111,14 @@
             {{--</div>--}}
 
                 <div style='float:right;'>
-                    <p class="top" style='text-align: center;' data-toggle="tooltip" data-html="true" title="<em>ir para o topo</em>">
+                    <p class="top"  data-toggle="tooltip" data-html="true" title="Ir para o topo">
                         <a href="#" class="btn btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span></a>
                     </p>
                 </div>
         @endif
 
 {{--script Datatable--}}
+{{--<script src="/media/js/jquery.dataTables.js" type="text/javascript"></script>--}}
 <script src="/media/js/jquery.dataTables.js" type="text/javascript"></script>
 <script>
     $(document).ready(function () {

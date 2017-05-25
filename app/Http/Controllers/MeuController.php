@@ -54,8 +54,6 @@ class MeuController extends Controller
     public function store(UserRequest $request)
     {
         $input = $request->all();
-//    dd($input);
-
         /*Revertendo o formato do campo data '05/07/1991' para o formato ('Y-mm-dd')=> '1991-07-05';*/
         $input['dataNascimento'] = implode("-",array_reverse(explode("/", $input['dataNascimento'])));
         $input['telefone'] = $this->clearDados($request['telefone']);
@@ -145,12 +143,12 @@ class MeuController extends Controller
         return view('search', compact('nome'));
     }
 
-    public function clearDados($arrdados)
+    public function clearDados($arrDados)
     {
-        if(strlen($arrdados)){
-            /*str_replace = subs tds ocorrências da string de procura com a string de subsituição*/
-            $arrdados = str_replace(array('-', '.','(',')'),'',$arrdados);
-            return $arrdados;
+            if(strlen($arrDados)){
+                /*str_replace = subs tds ocorrências da string de procura com a string de subsituição*/
+                $arrDados = str_replace(array('-', '.', '(', ')' ),'',$arrDados);
+                return $arrDados;
         }
     }
 }
