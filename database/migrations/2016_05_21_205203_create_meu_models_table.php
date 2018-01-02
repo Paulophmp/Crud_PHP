@@ -20,6 +20,7 @@ class CreateMeuModelsTable extends Migration
             $table->string('telefone', 255);
             $table->date('dataNascimento');
             $table->string('email', 255);
+            $table->string('salario', 60);
             $table->string('cep', 20);
             $table->string('street', 60);
             $table->string('bairro', 60);

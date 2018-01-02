@@ -13,11 +13,12 @@ use App\Http\Requests\UserRequest;
 
 class MeuController extends Controller
 {
+
     public function __construct()
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         return view('welcome');
@@ -46,7 +47,7 @@ class MeuController extends Controller
     {
         return view('contato');
     }
-    
+
     public function criar(){
         return view('criar');
     }
@@ -54,15 +55,14 @@ class MeuController extends Controller
     public function store(UserRequest $request)
     {
         $input = $request->all();
-        /*Revertendo o formato do campo data '05/07/1991' para o formato ('Y-mm-dd')=> '1991-07-05';*/
+        /*Revertendo o formato do campo data '05/07/1991' para o formato ('Y-mm-dd')=> '1991-07-05' */
         $input['dataNascimento'] = implode("-",array_reverse(explode("/", $input['dataNascimento'])));
         $input['telefone'] = $this->clearDados($request['telefone']);
         $input['cep']      = $this->clearDados($input['cep']);
+        $input['salario']      = $this->clearDados($input['salario']);
+//        dd($input);
 
         unset($input['_token']);
-//        dd($input);
-//        $file->move($salvar, $nomeFile);
-//        dd($input);
         meuModel::insert($input);
 
         $LogUser = new logUser();
@@ -147,7 +147,7 @@ class MeuController extends Controller
     {
             if(strlen($arrDados)){
                 /*str_replace = subs tds ocorrências da string de procura com a string de subsituição*/
-                $arrDados = str_replace(array('-', '.', '(', ')' ),'',$arrDados);
+                $arrDados = str_replace(array('-', '.',',' ,'(', ')' ),'',$arrDados);
                 return $arrDados;
         }
     }

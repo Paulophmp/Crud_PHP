@@ -15,7 +15,8 @@ class meuModel extends Model
         'estado',
         'dataNascimento',
         'endereco',
-        'documento'
+        'documento',
+        'salario'
     ];
 
     public static $rules = [
@@ -23,11 +24,11 @@ class meuModel extends Model
 //        'telefone' => 'required',
 //        'email' => 'required'
     ];
-    
+
     public function user()
     {
-		return $this->belongsTo(User::class);
-	}
+        return $this->belongsTo(User::class);
+    }
 
 //    /**
 //     * Save a new model and return the instance.
