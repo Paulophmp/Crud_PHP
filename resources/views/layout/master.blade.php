@@ -109,6 +109,13 @@
 
                                             <div class="form-group">
                                                 <label for="mail"><span class="glyphicon glyphicon-envelope"></span>
+                                                    Sobrenome</label>
+                                                <input type="text" class="form-control" id="sobrenome"
+                                                       value="{{ old('sobrenome') }}" placeholder="Sobrenome" name="sobrenome">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="mail"><span class="glyphicon glyphicon-envelope"></span>
                                                     E-mail</label>
                                                 <input type="text" class="form-control" id="mail"
                                                        value="{{ old('name') }}" placeholder="Enter email" name="email">
