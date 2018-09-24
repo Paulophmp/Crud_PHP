@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class meuModel extends Model
 {
+
     protected $fillable = [
         'user_id',
         'nome',
@@ -23,11 +24,11 @@ class meuModel extends Model
         'telefone' => 'required',
         'email' => 'required'
     ];
-    
+
     public function user()
     {
-		return $this->belongsTo(User::class);
-	}
+        return $this->belongsTo(User::class);
+    }
 
 //    /**
 //     * Save a new model and return the instance.

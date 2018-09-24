@@ -87,7 +87,7 @@ class MeuController extends Controller
     {
         $file = \App\meuModel::find($id);
         $salvar = storage_path() . '/documentos/';
-//        dd($salvar);
+
         return \Response::download($salvar . '/' . $file->documento);
     }
 
@@ -95,7 +95,6 @@ class MeuController extends Controller
     {
         $delete = meuModel::find($id);
         $delete->delete();
-        //meuModel::find($id)->delete();
 
         $LogUser = new logUser();
         $arrDados = array([

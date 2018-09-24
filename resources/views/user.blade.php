@@ -57,8 +57,8 @@
             </div>
 
             <div class="form-group">
-                <strong>Documento: </strong> <a href="<?php echo url("download/$user->id") ?>"
-                                                title="Download">{{ $user->documento }}</a>
+                <strong>Documento: </strong>
+                <a href="<?php echo url("download/$user->id") ?> "title="Download">{{ $user->documento }}</a>
             </div>
             Criado em {{$user->created_at}}
             {{--Criado em{{$data = date("d/m/Y")}}--}}
