@@ -14,7 +14,7 @@
 Route::get('/', 'MeuController@index');
 
 //Route::get('usuarios', 'MeuController@usuarios');
-Route::get('usuarios','MeuController@usuarios');
+Route::get('usuarios', 'MeuController@usuarios');
 
 Route::get('sobre', 'MeuController@sobre');
 

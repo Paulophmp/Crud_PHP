@@ -17,7 +17,7 @@ class MeuController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         return view('welcome');
@@ -28,17 +28,18 @@ class MeuController extends Controller
 //		$user = $mod->all()->orderBy('nome', 'ASC')->get();
 //		$user = $mod->where('user_id', auth()->user()->id)->get();
 //        $user = $mod->all();
-       $user = $mod::paginate(15);
-        return view('usuarios',['users'=>$user]);
+        $user = $mod::paginate(15);
+        return view('usuarios', ['users' => $user]);
     }
 
     public function user($id)
     {
         $user = meuModel::find($id);
-        return view('user',['user'=>$user]);
+        return view('user', ['user' => $user]);
     }
 
-    public function sobre(){
+    public function sobre()
+    {
         return view('sobre');
     }
 
@@ -46,8 +47,9 @@ class MeuController extends Controller
     {
         return view('contato');
     }
-    
-    public function criar(){
+
+    public function criar()
+    {
         return view('criar');
     }
 
@@ -57,7 +59,7 @@ class MeuController extends Controller
         $input = $request->all();
 
         $file = $request->file('documento');
-        $salvar = storage_path().'/documentos/';
+        $salvar = storage_path() . '/documentos/';
         $nomeFile = $file->getClientOriginalName();
 
         $fileModel = new \App\meuModel();
@@ -65,7 +67,7 @@ class MeuController extends Controller
         $fileModel->documento = $nomeFile;
 
 //        Revertendo o formato do campo data '05/07/1991' para o formato ('Y-mm-dd')=> '1991-07-05';
-        $input['dataNascimento'] = implode("-",array_reverse(explode("/", $input['dataNascimento'])));
+        $input['dataNascimento'] = implode("-", array_reverse(explode("/", $input['dataNascimento'])));
 
         $file->move($salvar, $nomeFile);
         meuModel::create($input);
@@ -78,15 +80,15 @@ class MeuController extends Controller
         ]);
         $arrDados = $LogUser::insert($arrDados);
 
-        return redirect('usuarios')->with('status','Criado com Sucesso');
+        return redirect('usuarios')->with('status', 'Criado com Sucesso');
     }
 
     public function download($id)
     {
         $file = \App\meuModel::find($id);
-        $salvar = storage_path().'/documentos/';
+        $salvar = storage_path() . '/documentos/';
 //        dd($salvar);
-        return \Response::download($salvar.'/'.$file->documento);
+        return \Response::download($salvar . '/' . $file->documento);
     }
 
     public function destroy($id)
@@ -99,20 +101,21 @@ class MeuController extends Controller
         $arrDados = array([
             'acao' => 'EXCLUIDO',
             'data' => new DateTime('now'),
-            'usuario' =>  '',
+            'usuario' => '',
         ]);
         $arrDados = $LogUser::insert($arrDados);
 
-        return redirect('usuarios')->with('status1','Deletado com Sucesso');
+        return redirect('usuarios')->with('status1', 'Deletado com Sucesso');
 
 //        meuModel::find($id)->delete();
 //        return redirect('usuarios')->with('message','meuModel successfully added');
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
         $editar = meuModel::find($id);
-        if( Gate::denies('autorizacao', $editar))
-            abort(403,'Não Autorizado ');
+        if (Gate::denies('autorizacao', $editar))
+            abort(403, 'Não Autorizado ');
 
         $LogUser = new logUser();
         $arrDados = array([
@@ -131,7 +134,7 @@ class MeuController extends Controller
         $this->validate($request, meuModel::$rules);
         $update = meuModel::find($id)->update($request->all());
 
-        return redirect('usuarios')->with('status','Atualizado com Sucesso');
+        return redirect('usuarios')->with('status', 'Atualizado com Sucesso');
     }
 
     public function search(Request $request)
@@ -139,9 +142,9 @@ class MeuController extends Controller
         $post = $request->all();
         $nomePost = isset($post['nome']) ? $post['nome'] : "";
         $nome = DB::table('meu_models')
-            ->select('id','nome', 'email', 'cidade')
-            ->where('nome',"LIKE", "%$nomePost%")
-            ->orWhere('id' , "LIKE",   "$nomePost")
+            ->select('id', 'nome', 'email', 'cidade')
+            ->where('nome', "LIKE", "%$nomePost%")
+            ->orWhere('id', "LIKE", "$nomePost")
             ->orderBy('nome', 'ASC')
             ->get();
 
