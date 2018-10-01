@@ -38,7 +38,6 @@ Route::get('search', 'MeuController@search');
 
 Route::post('contato/store', 'ContadoController@sendEmail');
 
-
 // Authentication routes...
 Route::get('login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');

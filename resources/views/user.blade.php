@@ -22,6 +22,7 @@
         <div class="panel-heading">
             Dados Completos
         </div>
+
         <div class="form-group">
         </div>
         <div class="panel-body">

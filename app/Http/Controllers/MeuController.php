@@ -122,6 +122,7 @@ class MeuController extends Controller
             'data' => new DateTime('now'),
             'usuario' => 'user',
         ]);
+
         $arrDados = $LogUser::insert($arrDados);
         return view('edit', compact('editar'));
     }

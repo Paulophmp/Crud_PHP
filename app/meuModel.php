@@ -30,6 +30,7 @@ class meuModel extends Model
         return $this->belongsTo(User::class);
     }
 
+
 //    /**
 //     * Save a new model and return the instance.
 //     *
