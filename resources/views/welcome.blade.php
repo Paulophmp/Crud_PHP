@@ -1,8 +1,5 @@
-
-
     @extends("layout.master")
     @section('container')
-
 
     <div class="jumbotron">
         <h1>Sejam Bem Vindo</h1>
